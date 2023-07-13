@@ -12,7 +12,6 @@ public class Spaceship_controls : MonoBehaviour
     public GameObject beamObj;
     public InputAction playerMove;
     public InputAction beam;
-    
 
     //Variables
     public Vector2 acceleration = new Vector2(0.1f, 0.1f);
@@ -39,13 +38,10 @@ public class Spaceship_controls : MonoBehaviour
         if (Mathf.Abs(currentSpeed.y) > maxSpeed.y) { currentSpeed.y = maxSpeed.y * Mathf.Sign(currentSpeed.y); }
         spaceshipRB.velocity = currentSpeed;
         Debug.Log(currentSpeed);
-        
+
         //beam
-        bool beamOn = beam.ReadValue<bool>();
+        bool beamOn = beam.ReadValue<float>() > 0.5f;
         beamObj.SetActive(beamOn);
     }
-
-
-
 }
 
