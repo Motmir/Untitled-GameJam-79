@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Farmerbullet : MonoBehaviour
+public class Farmerbullet : ParentBullet
 {
-    public int damage = 1, speed = 3;
-    public Rigidbody2D rb;
-    // Start is called before the first frame update
-    public void Setup(Vector2 Dir)
+
+    public override void OnTriggerEnter2D(Collider2D collider)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Setup(Vector3 Dir)
     {
         rb = transform.GetComponent<Rigidbody2D>();
 
