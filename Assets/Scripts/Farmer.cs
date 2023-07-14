@@ -17,7 +17,7 @@ public class Farmer : EarthEntityParent
 
     public void Init()
     {
-        pfBullet = (GameObject)Resources.Load("Farmer_bullet");
+        pfBullet = (GameObject)Resources.Load("Farmer_Bullet");
 
     }
     public void Shoot()
