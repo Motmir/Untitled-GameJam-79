@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public GameObject sAsteroid, mAsteroid, bAsteroid;
+    public GameObject sAsteroid, mAsteroid, bAsteroid, Spaceship;
 
     // Timers for the spawn rate of different size asteroids
     public float smallAsteroidTimer, mediumAsteroidTimer, bigAsteroidTimer;
+    public Random rnd = new Random();
+
 
     public void Awake()
     {
         sAsteroid = (GameObject)Resources.Load("SmallAsteroid");
         mAsteroid = (GameObject)Resources.Load("MediumAsteroid");
         bAsteroid = (GameObject)Resources.Load("BigAsteroid");
+    }
+
+
+    Vector3 getAttackVector()
+    {
+        return new Vector3(0,0,0);
     }
 
     // Update is called once per frame
@@ -26,9 +34,10 @@ public class AsteroidSpawner : MonoBehaviour
         if(Mathf.Floor(smallAsteroidTimer) >= 5)
         {
             GameObject smallAsteroidTransform = GameObject.Instantiate(sAsteroid, new Vector2(12,0), Quaternion.identity);
-            smallAsteroidTransform.GetComponent<Asteroid>().Setup(new Vector3(-3,0,0));
+            smallAsteroidTransform.GetComponent<Asteroid>().Setup(new Vector3(-1,0.2f,0));
             smallAsteroidTimer = 0;
         }
+        /*
         if(Mathf.Floor(mediumAsteroidTimer) >= 6)
         {
             GameObject mediumAsteroidTransform = GameObject.Instantiate(mAsteroid, new Vector2(12,0), Quaternion.identity);
@@ -41,5 +50,6 @@ public class AsteroidSpawner : MonoBehaviour
             bigAsteroidTransform.GetComponent<Asteroid>().Setup(new Vector3(-3,0,0));
             bigAsteroidTimer = 0;
         }
+        */
     }
 }
