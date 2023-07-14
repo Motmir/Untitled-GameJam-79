@@ -48,4 +48,10 @@ public class Cow : EarthEntityParent
             Move();
         }
     }
+
+    public override void Collected()
+    {
+        GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter++;
+        Destroy(this.gameObject);
+    }
 }

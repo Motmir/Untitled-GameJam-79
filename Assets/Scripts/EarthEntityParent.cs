@@ -59,6 +59,10 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         {
             TractorBeamed();
         }
+        if (collision.gameObject.name == "Collector")
+        {
+            Collected();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -77,4 +81,6 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         rb.velocity = moveVector;
         //throw new System.NotImplementedException();
     }
+
+    abstract public void Collected();
 }

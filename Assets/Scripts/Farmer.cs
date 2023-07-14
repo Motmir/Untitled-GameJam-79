@@ -59,4 +59,9 @@ public class Farmer : EarthEntityParent
         }
         rb.velocity = moveVector;
     }
+
+    public override void Collected()
+    {
+        //idk?
+    }
 }
