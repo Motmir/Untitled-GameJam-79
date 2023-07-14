@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.32150197
       objectReference: {fileID: 0}
+    - target: {fileID: 1430070892569646897, guid: 5d48c9854a9200c469e87e2eaf9560d1, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5388134428665302660, guid: 5d48c9854a9200c469e87e2eaf9560d1, type: 3}
       propertyPath: m_Size.x
       value: 2

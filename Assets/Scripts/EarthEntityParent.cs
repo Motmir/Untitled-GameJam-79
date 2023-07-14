@@ -10,7 +10,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     public Transform shipPos;
     public Rigidbody2D rb;
     public int dirTimer;
-    public bool canSee, beamed;
+    public bool canSee, beamed, grounded;
     public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
 
@@ -57,14 +57,24 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     {
         if(collision.gameObject.name == "Beam")
         {
+            beamed = true;
+            grounded = false;
             TractorBeamed();
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Ground placeholder")
+        {
+            grounded = true;
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Beam")
         {
+            beamed = false;
             //not TractorBeamed();
         }
     }
@@ -75,6 +85,5 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
 
         moveVector = directionVector;
         rb.velocity = moveVector;
-        //throw new System.NotImplementedException();
     }
 }

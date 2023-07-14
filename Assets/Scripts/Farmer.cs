@@ -11,8 +11,14 @@ public class Farmer : EarthEntityParent
     {
         FindShip();
         CanSee();
-        Move();
-        reloadTimer -= Time.deltaTime;
+        if (!beamed)
+        {
+            reloadTimer -= Time.deltaTime;
+            Move();
+        } else
+        {
+            TractorBeamed();
+        }
     }
 
     public void Init()
@@ -31,31 +37,41 @@ public class Farmer : EarthEntityParent
 
     public override void Move()
     {
-        if (canSee)
+        if (!grounded)
         {
-            if (reloadTimer < 0)
-            {
-                reloadTimer = 2;
-                Shoot();
-            }
-            if (distance.magnitude > (detectionRange / 1.2))
-            {
-                moveVector = new Vector2(Mathf.Sign(directionVector.x) * 2, transform.position.y);
-            } else
-            {
-                moveVector = new Vector2(Mathf.Sign(directionVector.x) * -2, transform.position.y);
-            }
-        } else
+            moveVector.y = -1.5f;
+        }
+        else
         {
-            if (dirTimer == 0)
+            if (canSee)
             {
-                moveVector = ChooseDir();
-                dirTimer = Random.Range(0, 4) * 60;
+                if (reloadTimer < 0)
+                {
+                    reloadTimer = 2;
+                    Shoot();
+                }
+                if (distance.magnitude > (detectionRange / 1.2))
+                {
+                    moveVector = new Vector2(Mathf.Sign(directionVector.x) * 2, transform.position.y);
+                }
+                else
+                {
+                    moveVector = new Vector2(Mathf.Sign(directionVector.x) * -2, transform.position.y);
+                }
             }
             else
             {
-                dirTimer -= 1;
+                if (dirTimer == 0)
+                {
+                    moveVector = ChooseDir();
+                    dirTimer = Random.Range(0, 4) * 60;
+                }
+                else
+                {
+                    dirTimer -= 1;
+                }
             }
+            moveVector.y = 0;
         }
         rb.velocity = moveVector;
     }
