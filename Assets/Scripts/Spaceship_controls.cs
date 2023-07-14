@@ -8,7 +8,7 @@ public class Spaceship_controls : MonoBehaviour
 {
     //Attributes
     public Camera cam;
-    public Rigidbody spaceshipRB;
+    public Rigidbody2D spaceshipRB;
     public Transform shipbody;
     public GameObject beamObj;
     public Transform gun;
@@ -28,7 +28,8 @@ public class Spaceship_controls : MonoBehaviour
         controls = new Controls();
         controls.Spaceship.Move.performed += Move;
         controls.Spaceship.Aim.performed += Aim;
-        controls.Spaceship.Beam.performed += Beam;
+        controls.Spaceship.Beam.started += Beam;
+        controls.Spaceship.Beam.canceled += Beam;
         controls.Spaceship.Shoot.performed += Shoot;
     }
     void OnEnable()
@@ -89,8 +90,6 @@ public class Spaceship_controls : MonoBehaviour
         if (currentSpeed.y > maxSpeed.y) { currentVelocity.y = maxSpeed.y * Mathf.Sign(currentVelocity.y); }
         spaceshipRB.velocity = currentVelocity;
         //Debug.Log(currentVelocity);
-
-
 
 
     //private float tilt = 0;
