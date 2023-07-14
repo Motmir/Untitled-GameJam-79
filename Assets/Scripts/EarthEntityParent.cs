@@ -10,7 +10,7 @@ abstract public class EarthEntityParent : MonoBehaviour
     public Transform shipPos;
     public Rigidbody2D rb;
     public bool canSee;
-    public float detectionRange, speed, maxSpeed, speedLoss, timer;
+    public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
 
     public void CanSee()
@@ -20,11 +20,9 @@ abstract public class EarthEntityParent : MonoBehaviour
             && distance.magnitude < detectionRange)
         {
             canSee = true;
-            Debug.Log("Can see ship");
         }
         else
         {
-            Debug.Log("Can't see ship");
             canSee = false;
         }
     }

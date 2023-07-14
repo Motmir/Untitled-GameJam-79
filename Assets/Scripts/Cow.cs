@@ -7,31 +7,37 @@ public class Cow : EarthEntityParent, ICow
 {
 
     private int dirTimer = 0;
+    private bool beamed = false;
 
     public void Moo()
-    {
+    {   
+        //Play audio clip
         throw new System.NotImplementedException();
     }
 
     public void TractorBeamed()
     {
-        throw new System.NotImplementedException();
+        //If this method is called it means the cow has been hit by the tractor beam.
+
+        moveVector = directionVector;
+        rb.velocity = moveVector;
+        //throw new System.NotImplementedException();
     }
 
     public void Walk()
     {
+        if (canSee)
+        {
+            moveVector.x = distance.normalized.x * -1;
+            moveVector.x *= Random.Range(1, 11) / 6;
+        } else
+        {
+
+        }
         if (dirTimer == 0)
         {
-            if (canSee)
-            {
-                moveVector.x = distance.normalized.x * -1;
-                moveVector.x *= Random.Range(1, 11) / 6;
-            }
-            else
-            {
-                moveVector = ChooseDir();
-                dirTimer = Random.Range(0, 4) * 60;
-            }
+            moveVector = ChooseDir();
+            dirTimer = Random.Range(0, 4) * 60;
         } else
         {
             dirTimer -= 1;
@@ -57,6 +63,9 @@ public class Cow : EarthEntityParent, ICow
     {
         FindShip();
         CanSee();
-        Walk();
+        if (!beamed)
+        {
+            Walk();
+        }
     }
 }
