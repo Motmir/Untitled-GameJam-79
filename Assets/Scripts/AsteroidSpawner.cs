@@ -8,7 +8,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     // Timers for the spawn rate of different size asteroids
     public float smallAsteroidTimer, mediumAsteroidTimer, bigAsteroidTimer;
-    public Random rnd = new Random();
+    
 
 
     public void Awake()
@@ -16,6 +16,7 @@ public class AsteroidSpawner : MonoBehaviour
         sAsteroid = (GameObject)Resources.Load("SmallAsteroid");
         mAsteroid = (GameObject)Resources.Load("MediumAsteroid");
         bAsteroid = (GameObject)Resources.Load("BigAsteroid");
+        Spaceship = (Game)
     }
 
 
