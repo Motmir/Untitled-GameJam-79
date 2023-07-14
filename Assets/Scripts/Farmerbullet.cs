@@ -16,7 +16,6 @@ public class Farmerbullet : ParentBullet
 
         float rotation = Mathf.Rad2Deg * Mathf.Atan2(Dir.y, Dir.x);
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
-        Debug.Log(Dir);
         rb.velocity = Dir * speed;
     }
 }

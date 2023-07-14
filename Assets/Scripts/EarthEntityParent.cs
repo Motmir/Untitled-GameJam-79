@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-abstract public class EarthEntityParent : MonoBehaviour
+abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
 {
     public GameObject ship;
     public Transform shipPos;
@@ -51,11 +51,5 @@ abstract public class EarthEntityParent : MonoBehaviour
     {
         ship = GameObject.Find("Spaceship");
         rb = transform.GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

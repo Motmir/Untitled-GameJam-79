@@ -52,7 +52,6 @@ public class Spaceship_controls : MonoBehaviour
 
     void Move(InputAction.CallbackContext c)
     {
-        //Debug.Log(moveInput);
         moveInput = c.ReadValue<Vector2>();
         
     }
@@ -68,7 +67,6 @@ public class Spaceship_controls : MonoBehaviour
     void Aim(InputAction.CallbackContext c)
     {
         mousePos = c.ReadValue<Vector2>();
-        //Debug.Log(cam.ScreenToWorldPoint(mousePos));
         gun.up = (Vector2) cam.ScreenToWorldPoint(mousePos) - (Vector2) gun.position;
     }
 
@@ -89,7 +87,6 @@ public class Spaceship_controls : MonoBehaviour
         if (currentSpeed.x > maxSpeed.x) { currentVelocity.x = maxSpeed.x * Mathf.Sign(currentVelocity.x); }
         if (currentSpeed.y > maxSpeed.y) { currentVelocity.y = maxSpeed.y * Mathf.Sign(currentVelocity.y); }
         spaceshipRB.velocity = currentVelocity;
-        //Debug.Log(currentVelocity);
 
 
     //private float tilt = 0;

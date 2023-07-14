@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Cow : EarthEntityParent, ICow 
+public class Cow : EarthEntityParent
 {
 
     public void Moo()
