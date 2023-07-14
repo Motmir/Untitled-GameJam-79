@@ -8,7 +8,7 @@ Unity Version: 2022.3.4f1[^1]
 ## Vision
 Earth: beam cows, dont get shot.
 Asteroids: dodge and shoot asteroids.
-rach. Deposit cows, upgrades, weather ailien.
+rach. Deposit cows, upgrades, weather forecast alien.
 7 dayes. day 3 +farmer , day 5 +sherif, day 7 +military comander.
 farmer: shotgun, close range, spread, high reaload rate
 sherif: revolver, any range, burst, medium reload rate
