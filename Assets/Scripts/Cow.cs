@@ -14,29 +14,31 @@ public class Cow : EarthEntityParent
 
     public override void Move()
     {
-        if (canSee)
+        if (!grounded)
         {
-            moveVector.x = distance.normalized.x * -1;
-            moveVector.x *= Random.Range(1, 11) / 6;
+            moveVector.y = -1.5f;
         } else
         {
-            if (dirTimer == 0)
+            if (canSee)
             {
-                moveVector = ChooseDir();
-                dirTimer = Random.Range(0, 4) * 60;
+                moveVector.x = distance.normalized.x * -1;
+                moveVector.x *= Random.Range(1, 11) / 6;
             }
             else
             {
-                dirTimer -= 1;
+                if (dirTimer == 0)
+                {
+                    moveVector = ChooseDir();
+                    dirTimer = Random.Range(0, 4) * 60;
+                }
+                else
+                {
+                    dirTimer -= 1;
+                }
             }
+            moveVector.y = 0;
         }
         rb.velocity = moveVector;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     public override void FixedUpdate()
@@ -46,6 +48,9 @@ public class Cow : EarthEntityParent
         if (!beamed)
         {
             Move();
+        } else
+        {
+            TractorBeamed();
         }
     }
 
