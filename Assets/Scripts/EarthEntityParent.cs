@@ -9,7 +9,8 @@ abstract public class EarthEntityParent : MonoBehaviour
     public GameObject ship;
     public Transform shipPos;
     public Rigidbody2D rb;
-    public bool canSee;
+    public int dirTimer;
+    public bool canSee, beamed;
     public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
 
@@ -34,7 +35,16 @@ abstract public class EarthEntityParent : MonoBehaviour
         directionVector.Normalize();
     }
 
+    public Vector2 ChooseDir()
+    {
+        Vector2 dir = new Vector2(UnityEngine.Random.Range(-10, 10), 0);
+        dir.x /= 7;
+        return dir;
+    }
+
     abstract public void FixedUpdate();
+
+    abstract public void Move();
 
     // Start is called before the first frame update
     void Start()

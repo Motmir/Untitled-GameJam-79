@@ -6,9 +6,6 @@ using UnityEngine;
 public class Cow : EarthEntityParent, ICow 
 {
 
-    private int dirTimer = 0;
-    private bool beamed = false;
-
     public void Moo()
     {   
         //Play audio clip
@@ -24,7 +21,7 @@ public class Cow : EarthEntityParent, ICow
         //throw new System.NotImplementedException();
     }
 
-    public void Walk()
+    public override void Move()
     {
         if (canSee)
         {
@@ -32,25 +29,17 @@ public class Cow : EarthEntityParent, ICow
             moveVector.x *= Random.Range(1, 11) / 6;
         } else
         {
-
-        }
-        if (dirTimer == 0)
-        {
-            moveVector = ChooseDir();
-            dirTimer = Random.Range(0, 4) * 60;
-        } else
-        {
-            dirTimer -= 1;
+            if (dirTimer == 0)
+            {
+                moveVector = ChooseDir();
+                dirTimer = Random.Range(0, 4) * 60;
+            }
+            else
+            {
+                dirTimer -= 1;
+            }
         }
         rb.velocity = moveVector;
-        //throw new System.NotImplementedException();
-    }
-
-    private Vector2 ChooseDir()
-    {
-        Vector2 dir = new Vector2(Random.Range(-10, 10), 0);
-        dir.x /= 7;
-        return dir;
     }
 
     // Start is called before the first frame update
@@ -65,7 +54,7 @@ public class Cow : EarthEntityParent, ICow
         CanSee();
         if (!beamed)
         {
-            Walk();
+            Move();
         }
     }
 }

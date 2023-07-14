@@ -6,7 +6,7 @@ public interface ICow
 {
     public void TractorBeamed();
 
-    public void Walk();
+    public void Move();
 
     public void Moo();
 }
