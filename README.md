@@ -5,6 +5,8 @@ Repo for collaborative work for the Untitled GameJam 79 with theme Space Farming
 ## Info
 Unity Version: 2022.3.4f1[^1]
 
+[^1]: https://unity.com/releases/editor/whats-new/2022.3.4
+
 ## Vision
 Earth: beam cows, dont get shot.
 Asteroids: dodge and shoot asteroids.
@@ -14,8 +16,8 @@ farmer: shotgun, close range, spread, high reaload rate
 sherif: revolver, any range, burst, medium reload rate
 military comander: bazooka, medium range, homing, low reload rate
 
-[^1]: https://unity.com/releases/editor/whats-new/2022.3.4
 
+## Images
 <img src="https://github.com/Motmir/Untitled-GameJam-79/assets/107803110/48646ce9-0dca-4c1f-ba11-7b54373efb87" width="400" height="200"> 
 
 <img src="https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/03f0e760-a2f3-43ee-9d44-984cd22c3b42" width="400" height="200">
