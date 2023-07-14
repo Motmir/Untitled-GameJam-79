@@ -52,4 +52,13 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         ship = GameObject.Find("Spaceship");
         rb = transform.GetComponent<Rigidbody2D>();
     }
+
+    public void TractorBeamed()
+    {
+        //If this method is called it means the cow has been hit by the tractor beam.
+
+        moveVector = directionVector;
+        rb.velocity = moveVector;
+        //throw new System.NotImplementedException();
+    }
 }

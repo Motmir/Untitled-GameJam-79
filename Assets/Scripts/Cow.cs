@@ -12,15 +12,6 @@ public class Cow : EarthEntityParent
         throw new System.NotImplementedException();
     }
 
-    public void TractorBeamed()
-    {
-        //If this method is called it means the cow has been hit by the tractor beam.
-
-        moveVector = directionVector;
-        rb.velocity = moveVector;
-        //throw new System.NotImplementedException();
-    }
-
     public override void Move()
     {
         if (canSee)
