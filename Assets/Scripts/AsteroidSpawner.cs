@@ -16,7 +16,6 @@ public class AsteroidSpawner : MonoBehaviour
         sAsteroid = (GameObject)Resources.Load("SmallAsteroid");
         mAsteroid = (GameObject)Resources.Load("MediumAsteroid");
         bAsteroid = (GameObject)Resources.Load("BigAsteroid");
-        Spaceship = (Game)
     }
 
 
