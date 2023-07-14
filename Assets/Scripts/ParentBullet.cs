@@ -6,7 +6,7 @@ public abstract class ParentBullet : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected float speed = 3;
-    public float duration;
+    public float duration = 5;
 
     public abstract void Setup(Vector3 Dir);
 
