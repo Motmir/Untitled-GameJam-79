@@ -16,5 +16,7 @@ military comander: bazooka, medium range, homing, low reload rate
 
 [^1]: https://unity.com/releases/editor/whats-new/2022.3.4
 
+![image](https://github.com/Motmir/Untitled-GameJam-79/assets/107803110/48646ce9-0dca-4c1f-ba11-7b54373efb87)
+
 ![image](https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/03f0e760-a2f3-43ee-9d44-984cd22c3b42)
 
