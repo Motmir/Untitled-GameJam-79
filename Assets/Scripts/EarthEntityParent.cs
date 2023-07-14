@@ -53,6 +53,22 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         rb = transform.GetComponent<Rigidbody2D>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "Beam")
+        {
+            TractorBeamed();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Beam")
+        {
+            //not TractorBeamed();
+        }
+    }
+
     public void TractorBeamed()
     {
         //If this method is called it means the cow has been hit by the tractor beam.
