@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 544652223831252931}
   - component: {fileID: 7426271593275634842}
   - component: {fileID: 3689158733255834267}
+  - component: {fileID: -3047317021790733329}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1064197721
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.735849, g: 0.4321501, b: 0.079832695, a: 1}
@@ -171,12 +172,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7f2143f3bb1c04a847d457f714e9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 0}
+  ship: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
   shipPos: {fileID: 0}
   rb: {fileID: 544652223831252931}
   dirTimer: 0
   canSee: 0
   beamed: 0
+  grounded: 0
+  spinDir: 0
   detectionRange: 10
   movement: {x: 0, y: 0}
   distance: {x: 0, y: 0}
@@ -184,3 +187,33 @@ MonoBehaviour:
   directionVector: {x: 0, y: 0}
   moveVector: {x: 0, y: 0}
   pfBullet: {fileID: 0}
+--- !u!114 &-3047317021790733329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414166487289210148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000000d26f9e3917e068a7fcf7e31595e6e3fbb2833e1
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -6338
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0}

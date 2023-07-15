@@ -12,9 +12,13 @@ public class Asteroid : ParentBullet
         rb.velocity = Dir * speed;
     }
 
-    public override void OnTriggerEnter2D(Collider2D collider)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
-        throw new System.NotImplementedException();
+        //Still needs to implement damaging the ship
+        if (collision.gameObject.name == "Spaceship")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
