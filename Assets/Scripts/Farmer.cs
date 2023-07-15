@@ -38,15 +38,16 @@ public class Farmer : EarthEntityParent
     {
         if (Mathf.Sign(directionVector.x) == -1)
         {
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipY = true;
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
-            GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
+            //Spaceship is on the left side
+            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = true;
+            //GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
+            Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, 0);
+            GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
         } else
         {
-            Vector3 invertedDirectionVector = directionVector * -1;
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipY = false;
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = true;
-            GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
+            //Spaceship is on the right side
+            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
+            GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
         }
     }
     public void Shoot()
