@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
+    public int cownter = 0;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -15,5 +17,17 @@ public class GameMaster : MonoBehaviour
         Instance = this;
     }
 
-    public int cownter = 0;
+    public void IncreaseCows()
+    {
+        cownter++;
+        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+    }
+
+    public void DecreaseCows()
+    {
+        cownter--;
+        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+    }
+
+
 }

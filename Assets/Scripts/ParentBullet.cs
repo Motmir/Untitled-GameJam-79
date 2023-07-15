@@ -10,7 +10,7 @@ public abstract class ParentBullet : MonoBehaviour
 
     public abstract void Setup(Vector3 Dir);
 
-    public abstract void OnTriggerEnter2D(Collider2D collider);
+    public abstract void OnCollisionEnter2D(Collision2D collision);
 
     public void FixedUpdate()
     {

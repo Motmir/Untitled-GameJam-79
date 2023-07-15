@@ -10,7 +10,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     public Transform shipPos;
     public Rigidbody2D rb;
     public int dirTimer;
-    public bool canSee, beamed, grounded;
+    public bool canSee, beamed, grounded, spinDir;
     public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
 
@@ -72,6 +72,8 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         if (collision.gameObject.name == "Ground placeholder")
         {
             grounded = true;
+            dirTimer = 0;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -86,8 +88,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     public void TractorBeamed()
     {
         //If this method is called it means the cow has been hit by the tractor beam.
-
-        moveVector = directionVector;
+        moveVector += directionVector / 15;
         rb.velocity = moveVector;
     }
 

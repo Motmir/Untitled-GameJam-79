@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 544652223831252931}
   - component: {fileID: 7426271593275634842}
   - component: {fileID: 3689158733255834267}
+
   - component: {fileID: -3359201725474958846}
   m_Layer: 0
   m_Name: Farmer
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1064197721
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.735849, g: 0.4321501, b: 0.079832695, a: 1}
@@ -172,13 +173,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7f2143f3bb1c04a847d457f714e9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 0}
+  ship: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
   shipPos: {fileID: 0}
   rb: {fileID: 544652223831252931}
   dirTimer: 0
   canSee: 0
   beamed: 0
   grounded: 0
+  spinDir: 0
   detectionRange: 10
   movement: {x: 0, y: 0}
   distance: {x: 0, y: 0}
