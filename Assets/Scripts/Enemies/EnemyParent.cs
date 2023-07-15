@@ -46,14 +46,15 @@ public abstract class EnemyParent : EarthEntityParent
         if (Mathf.Sign(directionVector.x) == -1)
         {
             //Spaceship is on the left side
-            gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, 0);
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, -1);
             gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = invertedDirectionVector;
+            //gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = directionVector;
         }
         else
         {
             //Spaceship is on the right side
-            gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = directionVector;
         }
     }
