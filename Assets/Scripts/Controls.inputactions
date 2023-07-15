@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Switch Scene",
+                    "type": "Button",
+                    "id": "7b638440-5af3-4cd2-8eb8-5ded69f05703",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -130,6 +139,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "28b859be-c310-4f3e-b2cc-d328a69b8d06",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch Scene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
