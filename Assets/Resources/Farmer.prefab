@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1891756412601919801}
   - component: {fileID: 544652223831252931}
   - component: {fileID: 7426271593275634842}
-  - component: {fileID: 3689158733255834267}
   - component: {fileID: -3359201725474958846}
+  - component: {fileID: 6725422775624217582}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -162,33 +162,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6956605, y: 2.9437575}
   m_EdgeRadius: 0
---- !u!114 &3689158733255834267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414166487289210148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7f2143f3bb1c04a847d457f714e9de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ship: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
-  shipPos: {fileID: 0}
-  rb: {fileID: 544652223831252931}
-  dirTimer: 0
-  canSee: 0
-  beamed: 0
-  grounded: 0
-  spinDir: 0
-  detectionRange: 10
-  movement: {x: 0, y: 0}
-  distance: {x: 0, y: 0}
-  goal: {x: 0, y: 0}
-  directionVector: {x: 0, y: 0}
-  moveVector: {x: 0, y: 0}
-  pfBullet: {fileID: 0}
 --- !u!114 &-3359201725474958846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,10 +188,38 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 45994
+  m_InstanceId: 30100
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
+--- !u!114 &6725422775624217582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414166487289210148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f2143f3bb1c04a847d457f714e9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  shipPos: {fileID: 0}
+  rb: {fileID: 544652223831252931}
+  dirTimer: 0
+  canSee: 0
+  beamed: 0
+  grounded: 0
+  spinDir: 0
+  detectionRange: 10
+  movement: {x: 0, y: 0}
+  distance: {x: 0, y: 0}
+  goal: {x: 0, y: 0}
+  directionVector: {x: 0, y: 0}
+  moveVector: {x: 0, y: 0}
+  reloadTimer: 0
+  bullet: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
 --- !u!1 &3579924310438081598
 GameObject:
   m_ObjectHideFlags: 0
