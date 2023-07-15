@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4964127708866544148}
   - component: {fileID: 2242481367639980877}
   m_Layer: 7
-  m_Name: Army_bullet 1
+  m_Name: Army_bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
-  Spaceship: {fileID: 743518647140762711, guid: 27481af48843cd7448a04612f1445ca5, type: 3}
-  adjustTimer: 1
+  adjustRate: 0.5
   timer: 0
