@@ -62,9 +62,7 @@ public class GameMaster : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            Debug.Log(GameObject.Find("Spaceship").GetComponent<Transform>().position.x + " : " + spaceSceneGoalDist);
             float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
-            Debug.Log(progress);
             float currentPos = startPos + progress * ((endPos - startPos) / 100);
             GameObject.Find("Tracker").GetComponent<RectTransform>().position = new Vector3(currentPos, GameObject.Find("Tracker").GetComponent<RectTransform>().position.y, GameObject.Find("Tracker").GetComponent<RectTransform>().position.z);
         }
