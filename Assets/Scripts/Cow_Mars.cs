@@ -68,20 +68,18 @@ public class Cow_Mars : MonoBehaviour
     
     public Rigidbody2D rb;
 
+    /*
     public float speed = 5;
     public float directionChangeInterval = 1;
     public float maxHeadingChange = 30;
-    Vector3 targetRotation;
-
+    */
 
     // A minimum and maximum time delay for taking a decision, choosing a direction to move in
     public Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0;
 
     Vector3 moveDirection;
-
-
-    float heading;
+    //  heading;
 
     public void Moo()
     {
@@ -92,21 +90,13 @@ public class Cow_Mars : MonoBehaviour
     void Awake()
     {
         // Set random initial rotation
-        heading = UnityEngine.Random.Range(0, 360);
-        transform.eulerAngles = new Vector3(0, heading, 0);
+        // heading = UnityEngine.Random.Range(0, 360);
+        // transform.eulerAngles = new Vector3(0, heading, 0);
 
         // Set a random time delay for taking a decision ( changing direction, or standing in place for a while )
         decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
     }
 
-
-    void NewHeadingRoutine()
-    {
-        var floor = transform.eulerAngles.y - maxHeadingChange;
-        var ceil = transform.eulerAngles.y + maxHeadingChange;
-        heading = UnityEngine.Random.Range(floor, ceil);
-        targetRotation = new Vector3(0, heading, 0);
-    }
 
     public void Move()
     {
@@ -115,7 +105,6 @@ public class Cow_Mars : MonoBehaviour
 
     public void FixedUpdate()
     {
-
         if (decisionTimeCount > 0)
         {
             decisionTimeCount -= Time.deltaTime;
@@ -128,15 +117,12 @@ public class Cow_Mars : MonoBehaviour
             // Choose a movement direction, or stay in place
             ChooseMoveDirection();
         }
-
-
         Move();
     }
 
     public void ChooseMoveDirection()
     {
         int randomNumber = UnityEngine.Random.Range(1, 5);
-
         switch (randomNumber)
         {
             case 1:
@@ -146,10 +132,10 @@ public class Cow_Mars : MonoBehaviour
                 moveDirection = Vector3.down;                
                 break;
             case 3:
-                moveDirection = Vector3.down;
+                moveDirection = Vector3.left;
                 break;
             default:
-                moveDirection = Vector3.down;
+                moveDirection = Vector3.right;
                 break;
         }
     }

@@ -186,7 +186,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2501990284231091291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,17 +233,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfc3b68302e5aa41b70763da2ff61c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 0}
-  shipPos: {fileID: 0}
-  rb: {fileID: 0}
-  dirTimer: 0
-  canSee: 0
-  beamed: 0
-  grounded: 1
-  spinDir: 0
-  detectionRange: 0
-  movement: {x: 0, y: 0}
-  distance: {x: 0, y: 0}
-  goal: {x: 0, y: 0}
-  directionVector: {x: 0, y: 0}
-  moveVector: {x: 0, y: 0}
+  rb: {fileID: 4120158897616468558}
+  decisionTime: {x: 1, y: 4}
