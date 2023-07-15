@@ -38,8 +38,8 @@ public abstract class EnemyParent : EarthEntityParent
             WatchShip();
             CanShoot();
             Move();
+            reloadTimer -= Time.deltaTime;
         }
-        reloadTimer -= Time.deltaTime;
     }
     public void WatchShip()
     {
@@ -47,7 +47,6 @@ public abstract class EnemyParent : EarthEntityParent
         {
             //Spaceship is on the left side
             GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = true;
-            //GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
             Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, 0);
             GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
         }
