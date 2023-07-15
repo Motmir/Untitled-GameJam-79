@@ -15,14 +15,13 @@ public class Farmer : EnemyParent
     public override void Shoot()
     {
         Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
-        for(int i = -1; i < 2; i+=2)
-        {
-            
-            GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);
-            bulletTransform.GetComponent<Farmerbullet>().Setup(directionVector);
 
-            Quaternion randomRotation = Quaternion.Euler(0, Random.Range(-5f, 5f), 0);
-        }
+        Vector3 offsetVector = directionVector;
+        offsetVector.x += Random.Range(-0.15f, 0.15f);
+        offsetVector.y += Random.Range(-0.15f, 0.15f);
+
+        GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);            
+        bulletTransform.GetComponent<Farmerbullet>().Setup(offsetVector);
     }
 
     public override void CanShoot()
