@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 544652223831252931}
   - component: {fileID: 7426271593275634842}
   - component: {fileID: 3689158733255834267}
-  - component: {fileID: -3047317021790733329}
+
+  - component: {fileID: -3359201725474958846}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -187,7 +188,7 @@ MonoBehaviour:
   directionVector: {x: 0, y: 0}
   moveVector: {x: 0, y: 0}
   pfBullet: {fileID: 0}
---- !u!114 &-3047317021790733329
+--- !u!114 &-3359201725474958846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +214,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -6338
+  m_InstanceId: -51708
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
