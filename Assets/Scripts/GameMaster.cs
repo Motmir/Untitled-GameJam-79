@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
-    public int cownter = 0;
+    public int cownter = 0, spaceSceneGoalDist = 1000;
     private int scene = 0;
 
     private void Awake()
@@ -45,6 +45,15 @@ public class GameMaster : MonoBehaviour
         } else if (scene == 2)
         {
             SceneManager.LoadScene("Space");
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            int progress = (int)GameObject.Find("Spaceship").GetComponent<Transform>().position.x * 100 / spaceSceneGoalDist;
+            GameObject.Find("Precentage").GetComponent<TextMeshProUGUI>().text = progress + "%";
         }
     }
 
