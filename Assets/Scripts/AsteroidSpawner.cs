@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AsteroidSpawner : MonoBehaviour
 {
-    public GameObject sAsteroid, mAsteroid, bAsteroid, Spaceship;
+    public GameObject sAsteroid, mAsteroid, bAsteroid;
 
-    // Timers for the spawn rate of different size asteroids
-    public float smallAsteroidTimer, mediumAsteroidTimer, bigAsteroidTimer;
-    public Random rnd = new Random();
+    /*
+    Difficulty multiplier for astroid spawner
+    Affects speed, size and rate
+    */
 
+    public float difficultyMultiplier, spawnRate;
+
+    float timer = 0; 
 
     public void Awake()
     {
@@ -18,38 +23,66 @@ public class AsteroidSpawner : MonoBehaviour
         bAsteroid = (GameObject)Resources.Load("BigAsteroid");
     }
 
-
-    Vector3 getAttackVector()
-    {
-        return new Vector3(0,0,0);
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        smallAsteroidTimer += Time.deltaTime;
-        mediumAsteroidTimer += Time.deltaTime; 
-        bigAsteroidTimer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        if(Mathf.Floor(smallAsteroidTimer) >= 5)
+        float timerOffset = UnityEngine.Random.Range(0.0f, 0.01f*difficultyMultiplier);
+
+        float asteroidSize = Mathf.Sqrt(1.2f * UnityEngine.Random.Range(0.0f, difficultyMultiplier));
+
+        if(spawnRate < timer + timerOffset)
         {
-            GameObject smallAsteroidTransform = GameObject.Instantiate(sAsteroid, new Vector2(12,0), Quaternion.identity);
-            smallAsteroidTransform.GetComponent<Asteroid>().Setup(new Vector3(-1,0.2f,0));
-            smallAsteroidTimer = 0;
+            if(asteroidSize > 2)
+            {
+                SpawnAsteroid(bAsteroid);
+            }else if(asteroidSize > 1) 
+            {
+                SpawnAsteroid(mAsteroid);
+            }else
+            {
+                SpawnAsteroid(sAsteroid);
+            }
+            timer = 0;
         }
-        /*
-        if(Mathf.Floor(mediumAsteroidTimer) >= 6)
+        
+    }
+
+    void SpawnAsteroid(GameObject Asteroid)
+    {
+        (Vector3 asteroidPos, Vector3 moveVector) = CreateAttackVector();
+        GameObject asteroidTransform = GameObject.Instantiate(Asteroid, asteroidPos, Quaternion.identity);
+        asteroidTransform.GetComponent<Asteroid>().Setup(moveVector);
+    }
+
+    // Returns start posision and moveVector for asteroid
+    (Vector3, Vector3) CreateAttackVector()
+    {
+        // Return values with default values
+        Vector3 asteroidPos = new Vector3(12,0,0);
+        Vector3 moveVector = new Vector3(-3,0,0);
+
+        // Multiplies moveVector.x with difficulty multiplier
+        moveVector.x *= UnityEngine.Random.Range(0.75f, difficultyMultiplier);
+
+        // Creates random y coordinate for y
+        float yPos = UnityEngine.Random.Range(0.0f, 5.0f);  
+        if(yPos == 0) 
         {
-            GameObject mediumAsteroidTransform = GameObject.Instantiate(mAsteroid, new Vector2(12,0), Quaternion.identity);
-            mediumAsteroidTransform.GetComponent<Asteroid>().Setup(new Vector3(-3,0,0));
-            mediumAsteroidTimer = 0;
-        }
-        if(Mathf.Floor(bigAsteroidTimer) >= 7)
-        {
-            GameObject bigAsteroidTransform = GameObject.Instantiate(bAsteroid, new Vector2(12,0), Quaternion.identity);
-            bigAsteroidTransform.GetComponent<Asteroid>().Setup(new Vector3(-3,0,0));
-            bigAsteroidTimer = 0;
-        }
-        */
+            return (asteroidPos, moveVector); // if yPos is 0 no values have to change
+        }    
+
+        // Creates offset on Y for moveVector
+        float yOffset = Mathf.Sqrt(yPos/12);
+        float yMove = UnityEngine.Random.Range(0.0f, yOffset); 
+
+        // Randomly makes astroid Y positive or negative
+        float negativeMultiplier = Mathf.Pow(-1, UnityEngine.Random.Range(1,3));
+        yPos *= negativeMultiplier;                
+        yMove *= negativeMultiplier;
+
+        asteroidPos.y = yPos;
+        moveVector.y = -yMove;
+        return (asteroidPos, moveVector);
     }
 }
