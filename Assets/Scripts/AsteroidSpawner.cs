@@ -22,13 +22,14 @@ public class AsteroidSpawner : MonoBehaviour
         mAsteroid = (GameObject)Resources.Load("MediumAsteroid");
         bAsteroid = (GameObject)Resources.Load("BigAsteroid");
     }
+    
 
     void FixedUpdate()
     {
         timer += Time.deltaTime;
 
+        // Modefies timer and size with diffcultyMultiplier
         float timerOffset = UnityEngine.Random.Range(0.0f, 0.01f*difficultyMultiplier);
-
         float asteroidSize = Mathf.Sqrt(1.2f * UnityEngine.Random.Range(0.0f, difficultyMultiplier));
 
         if(spawnRate < timer + timerOffset)
@@ -50,20 +51,32 @@ public class AsteroidSpawner : MonoBehaviour
 
     void SpawnAsteroid(GameObject Asteroid)
     {
-        (Vector3 asteroidPos, Vector3 moveVector) = CreateAttackVector();
+        (Vector3 asteroidPos, Vector3 moveVector) = CreateAttackVector(Asteroid.name);
         GameObject asteroidTransform = GameObject.Instantiate(Asteroid, asteroidPos, Quaternion.identity);
         asteroidTransform.GetComponent<Asteroid>().Setup(moveVector);
     }
 
     // Returns start posision and moveVector for asteroid
-    (Vector3, Vector3) CreateAttackVector()
+    (Vector3, Vector3) CreateAttackVector(string asteroidType)
     {
         // Return values with default values
         Vector3 asteroidPos = new Vector3(12,0,0);
         Vector3 moveVector = new Vector3(-3,0,0);
 
+        float moveDebuff = 1f;
+        switch(asteroidType) 
+        {
+        case "BigAsteroid":
+            moveDebuff = 0.6f;
+            break;
+        case "MediumAsteroid":
+            moveDebuff = 0.8f;  
+            break;
+        }
+
+
         // Multiplies moveVector.x with difficulty multiplier
-        moveVector.x *= UnityEngine.Random.Range(0.75f, difficultyMultiplier);
+        moveVector.x *= UnityEngine.Random.Range(0.75f, difficultyMultiplier) * moveDebuff;
 
         // Creates random y coordinate for y
         float yPos = UnityEngine.Random.Range(0.0f, 5.0f);  

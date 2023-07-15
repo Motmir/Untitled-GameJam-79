@@ -12,6 +12,12 @@ public class Asteroid : ParentBullet
         rb.velocity = Dir * speed;
     }
 
+    public void Update() 
+    {
+        float spinSpeed = Mathf.Sqrt(speed / 10.0f);
+        transform.Rotate(0, 0, 100*Time.deltaTime*spinSpeed);
+    }
+
     public override void OnCollisionEnter2D(Collision2D collision)
     {
         //Still needs to implement damaging the ship
