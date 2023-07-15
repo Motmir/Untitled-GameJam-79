@@ -8,7 +8,7 @@ public class Parallax : MonoBehaviour
 {
 
     // https://www.youtube.com/watch?v=zit45k6CUMk
-
+    public Material defualtLit;
     [SerializeField] public Sprite[] sprites;
     public int length, depth;
     public GameObject cam;
@@ -28,6 +28,7 @@ public class Parallax : MonoBehaviour
             segments[i].AddComponent<SpriteRenderer>();
             segments[i].GetComponent<SpriteRenderer>().sprite = sprites[i];
             segments[i].transform.SetParent(gameObject.transform);
+            segments[i].GetComponent<SpriteRenderer>().material = defualtLit;
         }
         shift = (int) Mathf.Floor(segments.Length / 2f);
     }
