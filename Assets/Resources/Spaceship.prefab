@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8978952432962304856}
   - component: {fileID: 3339948121665675258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3819971067447887707}
   - component: {fileID: 6997550949295390194}
   - component: {fileID: 8018035868938806524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spaceship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 6786766264056653460}
   - component: {fileID: 1005135262634919006}
   - component: {fileID: 8761688621410858146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925769594597737556}
   - component: {fileID: 1603536333350624788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2442675661924193705}
   - component: {fileID: 7607914294435238957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4706492028712790804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 3923228368951888239}
   - component: {fileID: 5212416267335773493}
   - component: {fileID: 5733499056680677276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531572431808723144}
   - component: {fileID: 1399459931025940394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Beam VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

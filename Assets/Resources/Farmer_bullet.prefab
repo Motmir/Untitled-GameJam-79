@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6038720519003364316}
   - component: {fileID: 7497542938016069831}
   - component: {fileID: 2103855120813950680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Farmer_bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,10 +164,10 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 183
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
