@@ -44,35 +44,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
 
     abstract public void FixedUpdate();
 
-    public void Move()
-    {
-        if (!grounded)
-        {
-            moveVector.y += -0.15f;
-        }
-        else
-        {
-            if (canSee)
-            {
-                moveVector.x = distance.normalized.x * -1;
-                moveVector.x *= UnityEngine.Random.Range(6, 13) / 6;
-            }
-            else
-            {
-                if (dirTimer == 0)
-                {
-                    moveVector = ChooseDir();
-                    dirTimer = UnityEngine.Random.Range(0, 4) * 60;
-                }
-                else
-                {
-                    dirTimer -= 1;
-                }
-            }
-            moveVector.y = 0;
-        }
-        rb.velocity = moveVector;
-    }
+    abstract public void Move();
 
     // Start is called before the first frame update
     void Start()
