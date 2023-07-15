@@ -40,7 +40,6 @@ public class Cow : EarthEntityParent
         }
         rb.velocity = moveVector;
     }
-
     public override void FixedUpdate()
     {
         FindShip();
@@ -53,11 +52,14 @@ public class Cow : EarthEntityParent
         if (!beamed)
         {
             Move();
-        } else
+        }
+        else
         {
             TractorBeamed();
         }
     }
+
+
 
     public override void Collected()
     {

@@ -81,6 +81,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         if (collision.gameObject.name == "Beam")
         {
             beamed = false;
+            moveVector = new Vector2(0, 0);
             //not TractorBeamed();
         }
     }
