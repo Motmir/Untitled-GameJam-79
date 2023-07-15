@@ -28,27 +28,32 @@ public class AsteroidSpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        // Modefies timer and size with diffcultyMultiplier
+        // Modefies timer and size with difficultyMultiplier
         float timerOffset = UnityEngine.Random.Range(0.0f, 0.01f*difficultyMultiplier);
-        float asteroidSize = Mathf.Sqrt(1.2f * UnityEngine.Random.Range(0.0f, difficultyMultiplier));
+        int numberOfRocks = (int)Mathf.Floor(Mathf.Pow(1.5f, difficultyMultiplier));
 
         if(spawnRate < timer + timerOffset)
         {
-            if(asteroidSize > 2)
+            for(int i = 0; i < numberOfRocks; i++)
             {
-                SpawnAsteroid(bAsteroid);
-            }else if(asteroidSize > 1) 
-            {
-                SpawnAsteroid(mAsteroid);
-            }else
-            {
-                SpawnAsteroid(sAsteroid);
+                float asteroidSize = Mathf.Sqrt(1.2f * UnityEngine.Random.Range(0.0f, difficultyMultiplier));
+                if(asteroidSize > 2)
+                {
+                    SpawnAsteroid(bAsteroid);
+                }else if(asteroidSize > 1) 
+                {
+                    SpawnAsteroid(mAsteroid);
+                }else
+                {
+                    SpawnAsteroid(sAsteroid);
+                }    
             }
             timer = 0;
         }
         
     }
 
+    // Spawns Asteroid
     void SpawnAsteroid(GameObject Asteroid)
     {
         (Vector3 asteroidPos, Vector3 moveVector) = CreateAttackVector(Asteroid.name);
@@ -61,7 +66,7 @@ public class AsteroidSpawner : MonoBehaviour
     {
         // Return values with default values
         Vector3 asteroidPos = new Vector3(12,0,0);
-        Vector3 moveVector = new Vector3(-3,0,0);
+        Vector3 moveVector = new Vector3(-2,0,0);
 
         float moveDebuff = 1f;
         switch(asteroidType) 
