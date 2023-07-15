@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Farmer : EarthEntityParent
 {
@@ -24,6 +26,7 @@ public class Farmer : EarthEntityParent
         {
             TractorBeamed();
         }
+        WatchShip();
     }
 
     public void Awake()
@@ -31,12 +34,27 @@ public class Farmer : EarthEntityParent
         pfBullet = (GameObject)Resources.Load("Farmer_Bullet");
 
     }
+    public void WatchShip()
+    {
+        if (Mathf.Sign(directionVector.x) == -1)
+        {
+            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipY = true;
+            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
+            GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
+        } else
+        {
+            Vector3 invertedDirectionVector = directionVector * -1;
+            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipY = false;
+            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = true;
+            GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
+        }
+    }
     public void Shoot()
     {
         Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
 
 
-        GameObject bulletTransform = GameObject.Instantiate(pfBullet, bulletSpawn, Quaternion.identity);
+        GameObject bulletTransform = Instantiate(pfBullet, bulletSpawn, Quaternion.identity);
         bulletTransform.GetComponent<Farmerbullet>().Setup(directionVector);
     }
 
@@ -49,19 +67,23 @@ public class Farmer : EarthEntityParent
         else
         {
             if (canSee)
-            {
-                if (reloadTimer < 0)
+            {                
+                if (distance.magnitude > (detectionRange / 2))
                 {
-                    reloadTimer = 2;
-                    Shoot();
-                }
-                if (distance.magnitude > (detectionRange / 1.2))
-                {
-                    moveVector = new Vector2(Mathf.Sign(directionVector.x) * 2, transform.position.y);
+                    moveVector += new Vector2(Mathf.Sign(directionVector.x) * 0.05f, transform.position.y);
                 }
                 else
                 {
-                    moveVector = new Vector2(Mathf.Sign(directionVector.x) * -2, transform.position.y);
+                    moveVector += new Vector2(Mathf.Sign(directionVector.x) * -0.05f, transform.position.y);
+                }
+                if (Mathf.Abs(moveVector.x) > 1) { moveVector.x = Mathf.Sign(moveVector.x) * 1; }
+                if (reloadTimer < 1)
+                {
+                    if (reloadTimer < 0)
+                    {
+                        reloadTimer = 2;
+                        Shoot();
+                    }
                 }
             }
             else
