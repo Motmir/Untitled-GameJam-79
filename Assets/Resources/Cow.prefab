@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1117457319501324269}
   - component: {fileID: 6725359884141849979}
   - component: {fileID: 8462535190117469442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   - {x: 1.0209262, y: -1.1494869, z: 0}
   m_ShapePathHash: 830619003
   m_Mesh: {fileID: 0}
-  m_InstanceId: 31352
+  m_InstanceId: 32062
   m_LocalBounds:
     m_Center: {x: -0.015124679, y: -0.023127556, z: 0}
     m_Extent: {x: 1.0360508, y: 1.2331138, z: 0}
