@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    // https://www.youtube.com/watch?v=EEtOt0Jf7PQ&list=PL8K0QjCk8ZmhIocxRo6P90O55yDHGpPlb&index=3&t=628s
+
+
     public int coins;
     public TMP_Text coinUI;
     public ShopItem[] shopItems;
