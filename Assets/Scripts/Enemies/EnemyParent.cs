@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public abstract class EnemyParent : EarthEntityParent
@@ -46,29 +47,23 @@ public abstract class EnemyParent : EarthEntityParent
         if (Mathf.Sign(directionVector.x) == -1)
         {
             //Spaceship is on the left side
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = true;
-            Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, 0);
-            GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            //Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, -1);
+            //gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = invertedDirectionVector;
+            Transform arm = gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>();
+            arm.right = directionVector;
+            Vector3 eu = arm.rotation.eulerAngles;
+            arm.rotation = Quaternion.Euler(new Vector3(eu.x+180,eu.y,-eu.z));
         }
         else
         {
             //Spaceship is on the right side
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
-            GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = directionVector;
         }
     }
 
-    public void CanShoot()
-    {
-        if (canSee)
-        {
-            if (reloadTimer < 0)
-            {
-                reloadTimer = 2;
-                Shoot();
-            }
-        }
-    }
+    public abstract void CanShoot();
 
     public abstract void Shoot();
 
@@ -91,14 +86,6 @@ public abstract class EnemyParent : EarthEntityParent
                     moveVector += new Vector2(Mathf.Sign(directionVector.x) * -0.05f, transform.position.y);
                 }
                 if (Mathf.Abs(moveVector.x) > 1) { moveVector.x = Mathf.Sign(moveVector.x) * 1; }
-                if (reloadTimer < 1)
-                {
-                    if (reloadTimer < 0)
-                    {
-                        reloadTimer = 2;
-                        Shoot();
-                    }
-                }
             }
             else
             {
