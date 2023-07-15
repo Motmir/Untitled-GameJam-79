@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
     public int cownter = 0, spaceSceneGoalDist = 1000;
     private int scene = 0;
+    private float startPos, endPos, barSize;
 
     private void Awake()
     {
@@ -18,6 +22,12 @@ public class GameMaster : MonoBehaviour
             return;
         }
         Instance = this;
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
+            startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + 155;
+            endPos = startPos + barSize - 75;
+        } 
     }
 
     public void IncreaseCows()
@@ -52,8 +62,9 @@ public class GameMaster : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            int progress = (int)GameObject.Find("Spaceship").GetComponent<Transform>().position.x * 100 / spaceSceneGoalDist;
-            GameObject.Find("Precentage").GetComponent<TextMeshProUGUI>().text = progress + "%";
+            float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
+            float currentPos = startPos + progress * ((endPos - startPos) / 100);
+            GameObject.Find("Tracker").GetComponent<RectTransform>().position = new Vector3(currentPos, GameObject.Find("Tracker").GetComponent<RectTransform>().position.y, GameObject.Find("Tracker").GetComponent<RectTransform>().position.z);
         }
     }
 
