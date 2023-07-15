@@ -38,8 +38,8 @@ public abstract class EnemyParent : EarthEntityParent
             WatchShip();
             CanShoot();
             Move();
+            reloadTimer -= Time.deltaTime;
         }
-        reloadTimer -= Time.deltaTime;
     }
     public void WatchShip()
     {
