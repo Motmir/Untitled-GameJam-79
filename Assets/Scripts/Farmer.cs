@@ -21,7 +21,7 @@ public class Farmer : EarthEntityParent
         }
     }
 
-    public void Init()
+    public void Awake()
     {
         pfBullet = (GameObject)Resources.Load("Farmer_Bullet");
 

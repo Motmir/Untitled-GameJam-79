@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class Cow : EarthEntityParent
 {
-
     public void Moo()
     {   
         //Play audio clip
@@ -57,6 +57,15 @@ public class Cow : EarthEntityParent
     public override void Collected()
     {
         GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter++;
+        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+        
         Destroy(gameObject);
     }
+    /*
+        Component[] components = GameObject.Find("Cownter").GetComponents(typeof(Component));
+        foreach (Component component in components)
+        {
+            Debug.Log(component.ToString());
+        }
+    */
 }

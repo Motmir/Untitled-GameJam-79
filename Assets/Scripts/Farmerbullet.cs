@@ -5,9 +5,13 @@ using UnityEngine;
 public class Farmerbullet : ParentBullet
 {
 
-    public override void OnTriggerEnter2D(Collider2D collider)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
-        throw new System.NotImplementedException();
+        //Needs to implement damaging the ship
+        if (collision.gameObject.name == "Spaceship")
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void Setup(Vector3 Dir)
