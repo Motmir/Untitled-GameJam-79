@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,9 @@ using UnityEngine;
 public abstract class EnemyParent : EarthEntityParent
 {
     public float reloadTimer = 0;
+    private float spinSpeed = 0;
     public GameObject bullet;
+    Vector3 rotationSpin;
     public override void Collected()
     {
         //Cannot be collected, but write to log to show it works
@@ -16,24 +19,27 @@ public abstract class EnemyParent : EarthEntityParent
     {
         FindShip();
         CanSee();
-        if (!grounded)
+        if (beamed)
         {
-            Vector3 rotationSpin = new Vector3(0, 0, 100 * Time.deltaTime);
+            TractorBeamed();
+            spinSpeed += 2;
+            rotationSpin = new Vector3(0, 0, spinSpeed * Time.deltaTime);
             transform.Rotate(rotationSpin);
+        } else if (!grounded)
+        {
+            if (spinSpeed > 0) { spinSpeed -= 5; } else { spinSpeed = 0; }
+            rotationSpin = new Vector3(0, 0, spinSpeed * Time.deltaTime);
+            transform.Rotate(rotationSpin);
+            WatchShip();
+            CanShoot();
         }
         else
         {
             WatchShip();
-        }
-        if (!beamed)
-        {
-            reloadTimer -= Time.deltaTime;
+            CanShoot();
             Move();
         }
-        else
-        {
-            TractorBeamed();
-        }
+        reloadTimer -= Time.deltaTime;
     }
     public void WatchShip()
     {
@@ -50,6 +56,18 @@ public abstract class EnemyParent : EarthEntityParent
             //Spaceship is on the right side
             GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
             GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
+        }
+    }
+
+    public void CanShoot()
+    {
+        if (canSee)
+        {
+            if (reloadTimer < 0)
+            {
+                reloadTimer = 2;
+                Shoot();
+            }
         }
     }
 
@@ -88,7 +106,7 @@ public abstract class EnemyParent : EarthEntityParent
                 if (dirTimer == 0)
                 {
                     moveVector = ChooseDir();
-                    dirTimer = Random.Range(0, 4) * 60;
+                    dirTimer = UnityEngine.Random.Range(0, 4) * 60;
                 }
                 else
                 {

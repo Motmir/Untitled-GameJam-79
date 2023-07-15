@@ -40,6 +40,26 @@ public class Cow : EarthEntityParent
         }
         rb.velocity = moveVector;
     }
+    public override void FixedUpdate()
+    {
+        FindShip();
+        CanSee();
+        if (!grounded)
+        {
+            Vector3 rotationSpin = new Vector3(0, 0, 100 * Time.deltaTime);
+            transform.Rotate(rotationSpin);
+        }
+        if (!beamed)
+        {
+            Move();
+        }
+        else
+        {
+            TractorBeamed();
+        }
+    }
+
+
 
     public override void Collected()
     {

@@ -64,7 +64,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.014998406, y: -0.43495554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,7 +75,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5050505, y: 0.460055}
   m_EdgeRadius: 0
 --- !u!1 &743518647140762711
 GameObject:
@@ -210,7 +210,7 @@ MonoBehaviour:
   - {x: -0.33958095, y: -0.47627443, z: -0.000000044703484}
   m_ShapePathHash: -425905464
   m_Mesh: {fileID: 0}
-  m_InstanceId: 31294
+  m_InstanceId: 30990
   m_LocalBounds:
     m_Center: {x: 0.029096842, y: -0.019413233, z: 0}
     m_Extent: {x: 0.7421611, y: 0.63111246, z: 0}
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Intensity: 5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000000d26f9e3917e068a7fcf7e31595e6e3fbb2833e1
+  m_ApplyToSortingLayers: 000000000d26f9e3917e068a7fcf7e31595e6e3f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
