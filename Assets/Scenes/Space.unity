@@ -903,6 +903,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6262064561878484763, guid: 27481af48843cd7448a04612f1445ca5, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 917925542}
+    - target: {fileID: 6262064561878484763, guid: 27481af48843cd7448a04612f1445ca5, type: 3}
+      propertyPath: xOffset
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262064561878484763, guid: 27481af48843cd7448a04612f1445ca5, type: 3}
+      propertyPath: someSpeedFactor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8018035868938806524, guid: 27481af48843cd7448a04612f1445ca5, type: 3}
       propertyPath: m_Mesh
       value: 
