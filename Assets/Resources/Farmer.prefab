@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7426271593275634842}
   - component: {fileID: -3359201725474958846}
   - component: {fileID: 6725422775624217582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Farmer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,10 +129,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -188,7 +188,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30100
+  m_InstanceId: 38298
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348789410665641913}
   - component: {fileID: 4492743007740046727}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7124383177615731066}
   - component: {fileID: 2488722090103383834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
