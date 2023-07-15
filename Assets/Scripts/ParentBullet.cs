@@ -6,9 +6,18 @@ public abstract class ParentBullet : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected float speed = 3;
-    protected int duration;
+    public float duration = 5;
 
     public abstract void Setup(Vector3 Dir);
 
-    public abstract void OnTriggerEnter2D(Collider2D collider);
+    public abstract void OnCollisionEnter2D(Collision2D collision);
+
+    public void FixedUpdate()
+    {
+        duration -= Time.deltaTime;
+        if (duration < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
