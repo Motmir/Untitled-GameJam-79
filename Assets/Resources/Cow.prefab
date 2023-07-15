@@ -177,6 +177,7 @@ MonoBehaviour:
   dirTimer: 0
   canSee: 0
   beamed: 0
+  grounded: 0
   detectionRange: 3
   movement: {x: 0, y: 0}
   distance: {x: 0, y: 0}
