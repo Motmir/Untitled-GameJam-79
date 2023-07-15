@@ -62,6 +62,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Switch Scene"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b638440-5af3-4cd2-8eb8-5ded69f05703"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28b859be-c310-4f3e-b2cc-d328a69b8d06"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch Scene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Spaceship_Beam = m_Spaceship.FindAction("Beam", throwIfNotFound: true);
         m_Spaceship_Shoot = m_Spaceship.FindAction("Shoot", throwIfNotFound: true);
         m_Spaceship_Aim = m_Spaceship.FindAction("Aim", throwIfNotFound: true);
+        m_Spaceship_SwitchScene = m_Spaceship.FindAction("Switch Scene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Spaceship_Beam;
     private readonly InputAction m_Spaceship_Shoot;
     private readonly InputAction m_Spaceship_Aim;
+    private readonly InputAction m_Spaceship_SwitchScene;
     public struct SpaceshipActions
     {
         private @Controls m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Beam => m_Wrapper.m_Spaceship_Beam;
         public InputAction @Shoot => m_Wrapper.m_Spaceship_Shoot;
         public InputAction @Aim => m_Wrapper.m_Spaceship_Aim;
+        public InputAction @SwitchScene => m_Wrapper.m_Spaceship_SwitchScene;
         public InputActionMap Get() { return m_Wrapper.m_Spaceship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
+            @SwitchScene.started += instance.OnSwitchScene;
+            @SwitchScene.performed += instance.OnSwitchScene;
+            @SwitchScene.canceled += instance.OnSwitchScene;
         }
 
         private void UnregisterCallbacks(ISpaceshipActions instance)
@@ -274,6 +300,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
+            @SwitchScene.started -= instance.OnSwitchScene;
+            @SwitchScene.performed -= instance.OnSwitchScene;
+            @SwitchScene.canceled -= instance.OnSwitchScene;
         }
 
         public void RemoveCallbacks(ISpaceshipActions instance)
@@ -297,5 +326,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnBeam(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnSwitchScene(InputAction.CallbackContext context);
     }
 }
