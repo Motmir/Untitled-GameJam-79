@@ -47,9 +47,9 @@ public abstract class EnemyParent : EarthEntityParent
         {
             //Spaceship is on the left side
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
-            Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, -1);
-            gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = invertedDirectionVector;
-            //gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = directionVector;
+            //Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, -1);
+            //gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = invertedDirectionVector;
+            gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = directionVector;
         }
         else
         {
