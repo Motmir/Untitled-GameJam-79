@@ -11,6 +11,11 @@ public class Farmer : EarthEntityParent
     {
         FindShip();
         CanSee();
+        if (!grounded)
+        {
+            Vector3 rotationSpin = new Vector3(0, 0, 100 * Time.deltaTime);
+            transform.Rotate(rotationSpin);
+        }
         if (!beamed)
         {
             reloadTimer -= Time.deltaTime;
@@ -39,7 +44,7 @@ public class Farmer : EarthEntityParent
     {
         if (!grounded)
         {
-            moveVector.y = -1.5f;
+            moveVector.y += -0.1f;
         }
         else
         {

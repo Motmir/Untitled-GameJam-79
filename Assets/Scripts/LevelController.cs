@@ -17,19 +17,31 @@ public class LevelController : MonoBehaviour, ILevels
         GameObject cow = (GameObject)Resources.Load("Cow");
         GameObject enemy = (GameObject)Resources.Load("Farmer");
         while (cowsToSpawn > 0) {
-            GameObject.Instantiate(cow, new Vector2(Random.Range(-10, 10), 0), Quaternion.identity);
+            GameObject.Instantiate(cow, new Vector2(Random.Range(-10, 10), -2), Quaternion.identity);
             cowsToSpawn--;
         }
         while (enemiesToSpawn > 0)
         {
-            GameObject.Instantiate(enemy, new Vector2(Random.Range(-10, 10), 0), Quaternion.identity);
+            GameObject.Instantiate(enemy, new Vector2(Random.Range(-10, 10), -2), Quaternion.identity);
             enemiesToSpawn--;
         }
     }
 
     public void Level2()
     {
-        throw new System.NotImplementedException();
+        cowsToSpawn = 15; enemiesToSpawn = 3;
+        GameObject cow = (GameObject)Resources.Load("Cow");
+        GameObject enemy = (GameObject)Resources.Load("Farmer");
+        while (cowsToSpawn > 0)
+        {
+            GameObject.Instantiate(cow, new Vector2(Random.Range(-10, 10), -2), Quaternion.identity);
+            cowsToSpawn--;
+        }
+        while (enemiesToSpawn > 0)
+        {
+            GameObject.Instantiate(enemy, new Vector2(Random.Range(-10, 10), -2), Quaternion.identity);
+            enemiesToSpawn--;
+        }
     }
 
     public void Level3()

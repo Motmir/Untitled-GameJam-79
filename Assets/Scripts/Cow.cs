@@ -16,13 +16,13 @@ public class Cow : EarthEntityParent
     {
         if (!grounded)
         {
-            moveVector.y = -1.5f;
+            moveVector.y += -0.15f;
         } else
         {
             if (canSee)
             {
                 moveVector.x = distance.normalized.x * -1;
-                moveVector.x *= Random.Range(1, 11) / 6;
+                moveVector.x *= Random.Range(6, 13) / 6;
             }
             else
             {
@@ -45,6 +45,11 @@ public class Cow : EarthEntityParent
     {
         FindShip();
         CanSee();
+        if (!grounded)
+        {
+            Vector3 rotationSpin = new Vector3(0, 0, 100 * Time.deltaTime);
+            transform.Rotate(rotationSpin);
+        }
         if (!beamed)
         {
             Move();
@@ -56,9 +61,7 @@ public class Cow : EarthEntityParent
 
     public override void Collected()
     {
-        GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter++;
-        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
-        
+        GameObject.Find("GameMaster").GetComponent<GameMaster>().IncreaseCows();
         Destroy(gameObject);
     }
     /*
