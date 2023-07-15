@@ -46,30 +46,20 @@ public abstract class EnemyParent : EarthEntityParent
         if (Mathf.Sign(directionVector.x) == -1)
         {
             //Spaceship is on the left side
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = true;
+            gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = true;
             //GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
             Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, 0);
-            GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
+            gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = invertedDirectionVector;
         }
         else
         {
             //Spaceship is on the right side
-            GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
-            GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
+            gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gameObject.transform.GetChild(1).gameObject.GetComponent<Transform>().right = directionVector;
         }
     }
 
-    public void CanShoot()
-    {
-        if (canSee)
-        {
-            if (reloadTimer < 0)
-            {
-                reloadTimer = 2;
-                Shoot();
-            }
-        }
-    }
+    public abstract void CanShoot();
 
     public abstract void Shoot();
 
@@ -92,14 +82,6 @@ public abstract class EnemyParent : EarthEntityParent
                     moveVector += new Vector2(Mathf.Sign(directionVector.x) * -0.05f, transform.position.y);
                 }
                 if (Mathf.Abs(moveVector.x) > 1) { moveVector.x = Mathf.Sign(moveVector.x) * 1; }
-                if (reloadTimer < 1)
-                {
-                    if (reloadTimer < 0)
-                    {
-                        reloadTimer = 2;
-                        Shoot();
-                    }
-                }
             }
             else
             {
