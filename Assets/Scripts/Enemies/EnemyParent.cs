@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Animations;
 
-public class Farmer : EarthEntityParent
+public abstract class EnemyParent : EarthEntityParent
 {
-    private float reloadTimer = 0;
-    public GameObject pfBullet;
+    public float reloadTimer = 0;
+    public GameObject bullet;
+    public override void Collected()
+    {
+        //Cannot be collected, but write to log to show it works
+        Debug.Log("Enemy cannot be collected");
+    }
+
     public override void FixedUpdate()
     {
         FindShip();
@@ -18,21 +21,19 @@ public class Farmer : EarthEntityParent
             Vector3 rotationSpin = new Vector3(0, 0, 100 * Time.deltaTime);
             transform.Rotate(rotationSpin);
         }
+        else
+        {
+            WatchShip();
+        }
         if (!beamed)
         {
             reloadTimer -= Time.deltaTime;
             Move();
-        } else
+        }
+        else
         {
             TractorBeamed();
         }
-        WatchShip();
-    }
-
-    public void Awake()
-    {
-        pfBullet = (GameObject)Resources.Load("Farmer_Bullet");
-
     }
     public void WatchShip()
     {
@@ -43,21 +44,16 @@ public class Farmer : EarthEntityParent
             //GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
             Vector3 invertedDirectionVector = directionVector * new Vector3(-1, -1, 0);
             GameObject.Find("Upper").GetComponent<Transform>().right = invertedDirectionVector;
-        } else
+        }
+        else
         {
             //Spaceship is on the right side
             GameObject.Find("Upper").GetComponent<SpriteRenderer>().flipX = false;
             GameObject.Find("Upper").GetComponent<Transform>().right = directionVector;
         }
     }
-    public void Shoot()
-    {
-        Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
 
-
-        GameObject bulletTransform = Instantiate(pfBullet, bulletSpawn, Quaternion.identity);
-        bulletTransform.GetComponent<Farmerbullet>().Setup(directionVector);
-    }
+    public abstract void Shoot();
 
     public override void Move()
     {
@@ -68,7 +64,7 @@ public class Farmer : EarthEntityParent
         else
         {
             if (canSee)
-            {                
+            {
                 if (distance.magnitude > (detectionRange / 2))
                 {
                     moveVector += new Vector2(Mathf.Sign(directionVector.x) * 0.05f, transform.position.y);
@@ -102,10 +98,5 @@ public class Farmer : EarthEntityParent
             moveVector.y = 0;
         }
         rb.velocity = moveVector;
-    }
-
-    public override void Collected()
-    {
-        //idk?
     }
 }
