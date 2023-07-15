@@ -777,7 +777,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236543651
 GameObject:
@@ -830,8 +830,9 @@ MonoBehaviour:
   sAsteroid: {fileID: 0}
   mAsteroid: {fileID: 0}
   bAsteroid: {fileID: 0}
-  difficultyMultiplier: 1
-  spawnRate: 5
+  spaceship: {fileID: 2076352484}
+  difficultyMultiplier: 2
+  spawnRate: 1
 --- !u!4 &1350184692
 Transform:
   m_ObjectHideFlags: 0
@@ -839,13 +840,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204898696}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 30, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1537949190
 PrefabInstance:
@@ -981,3 +982,8 @@ MonoBehaviour:
   cam: {fileID: 917925539}
   parallaxEffect: 0.2
   currentSpace: 0
+--- !u!4 &2076352484 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 800758130623136536, guid: 27481af48843cd7448a04612f1445ca5, type: 3}
+  m_PrefabInstance: {fileID: 1537949190}
+  m_PrefabAsset: {fileID: 0}
