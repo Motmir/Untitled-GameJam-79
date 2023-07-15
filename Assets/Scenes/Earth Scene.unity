@@ -136,6 +136,14 @@ PrefabInstance:
       value: Farmer
       objectReference: {fileID: 0}
     - target: {fileID: 1891756412601919801, guid: 4a42972d5d727644f801b2475b4bea00, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891756412601919801, guid: 4a42972d5d727644f801b2475b4bea00, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1064197721
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891756412601919801, guid: 4a42972d5d727644f801b2475b4bea00, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -306,6 +314,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6729dc901c576cf4b9cdf862b325b7ae, type: 3}
     - target: {fileID: 5388134428665302660, guid: 5d48c9854a9200c469e87e2eaf9560d1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388134428665302660, guid: 5d48c9854a9200c469e87e2eaf9560d1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1064197721
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388134428665302660, guid: 5d48c9854a9200c469e87e2eaf9560d1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -360,10 +376,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.54
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000000d26f9e3917e068a595e6e3fbb2833e1
+  m_ApplyToSortingLayers: 000000000d26f9e3917e068a595e6e3fbb2833e17fcf7e31
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -797,6 +813,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship
       objectReference: {fileID: 0}
+    - target: {fileID: 4023356299489838126, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023356299489838126, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 830394239
+      objectReference: {fileID: 0}
     - target: {fileID: 6139711015256402716, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -848,6 +872,14 @@ PrefabInstance:
     - target: {fileID: 7380553179845926013, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978330507132006958, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978330507132006958, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -516740933
       objectReference: {fileID: 0}
     - target: {fileID: 8978330507132006958, guid: 39e8e328ca5c0394b9350d84ef866b7f, type: 3}
       propertyPath: m_Materials.Array.data[0]
