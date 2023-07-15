@@ -26,9 +26,6 @@ public class SheriffBullet : ParentBullet
     {
         rb = transform.GetComponent<Rigidbody2D>();
 
-        Dir.x *= 10;
-        Dir.y *= 10;
-
         float rotation = Mathf.Rad2Deg * Mathf.Atan2(Dir.y, Dir.x);
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
         rb.velocity = Dir * speed;

@@ -17,7 +17,7 @@ public class Farmer : EnemyParent
         Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
         for(int i = -1; i < 2; i+=2)
         {
-
+            
             GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);
             bulletTransform.GetComponent<Farmerbullet>().Setup(directionVector);
 
