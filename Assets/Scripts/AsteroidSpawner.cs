@@ -6,6 +6,8 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject sAsteroid, mAsteroid, bAsteroid;
+    public Transform spaceship;
+
 
     /*
     Difficulty multiplier for astroid spawner
@@ -30,9 +32,9 @@ public class AsteroidSpawner : MonoBehaviour
 
         // Modefies timer and size with difficultyMultiplier
         float timerOffset = UnityEngine.Random.Range(0.0f, 0.01f*difficultyMultiplier);
-        int numberOfRocks = (int)Mathf.Floor(Mathf.Pow(1.5f, difficultyMultiplier));
+        int numberOfRocks = Mathf.FloorToInt(2 * difficultyMultiplier);
 
-        if(spawnRate < timer + timerOffset)
+        if(1/spawnRate < timer + timerOffset)
         {
             for(int i = 0; i < numberOfRocks; i++)
             {
@@ -65,33 +67,34 @@ public class AsteroidSpawner : MonoBehaviour
     (Vector3, Vector3) CreateAttackVector(string asteroidType)
     {
         // Return values with default values
-        Vector3 asteroidPos = new Vector3(12,0,0);
-        Vector3 moveVector = new Vector3(-2,0,0);
+        Vector3 asteroidPos = spaceship.position + new Vector3(60f,0f,0f);
+        Vector3 moveVector = new Vector3(-2*difficultyMultiplier,0,0);
 
         float moveDebuff = 1f;
         switch(asteroidType) 
         {
         case "BigAsteroid":
-            moveDebuff = 0.6f;
+            moveDebuff = 0.2f;
             break;
         case "MediumAsteroid":
-            moveDebuff = 0.8f;  
+            moveDebuff = 0.4f;  
             break;
         }
 
 
         // Multiplies moveVector.x with difficulty multiplier
+        asteroidPos.y += UnityEngine.Random.Range(-10.0f, 10); ;
         moveVector.x *= UnityEngine.Random.Range(0.75f, difficultyMultiplier) * moveDebuff;
 
         // Creates random y coordinate for y
-        float yPos = UnityEngine.Random.Range(0.0f, 5.0f);  
+        float yPos = UnityEngine.Random.Range(0.0f, 20.0f);  
         if(yPos == 0) 
         {
             return (asteroidPos, moveVector); // if yPos is 0 no values have to change
         }    
 
         // Creates offset on Y for moveVector
-        float yOffset = Mathf.Sqrt(yPos/12);
+        float yOffset = Mathf.Pow(yPos/12, 2);
         float yMove = UnityEngine.Random.Range(0.0f, yOffset); 
 
         // Randomly makes astroid Y positive or negative
@@ -99,8 +102,8 @@ public class AsteroidSpawner : MonoBehaviour
         yPos *= negativeMultiplier;                
         yMove *= negativeMultiplier;
 
-        asteroidPos.y = yPos;
-        moveVector.y = -yMove;
+        asteroidPos.y += yPos;
+        moveVector.y += yMove;
         return (asteroidPos, moveVector);
     }
 }
