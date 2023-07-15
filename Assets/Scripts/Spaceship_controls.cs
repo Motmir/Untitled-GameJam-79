@@ -27,6 +27,8 @@ public class Spaceship_controls : MonoBehaviour
     public Vector2 FloorRoofShip = new Vector2(-50,50);
     public Vector2 FloorRoofCam = new Vector2(-40, 40);
 
+    public int someSpeedFactor, xOffset;
+
     private void Awake()
     {
         controls = new Controls();
@@ -106,8 +108,7 @@ public class Spaceship_controls : MonoBehaviour
 
         spaceshipRB.AddTorque( Vector3.Dot(Vector3.up, -spaceshipRB.transform.right));
 
-        int someSpeedFactor = 1;
-        float x = Mathf.Lerp(cam.transform.position.x, shipbody.position.x, Time.deltaTime * someSpeedFactor);
+        float x = Mathf.Lerp(cam.transform.position.x, shipbody.position.x + xOffset, Time.deltaTime * someSpeedFactor);
         float y = Mathf.Lerp(cam.transform.position.y, shipbody.position.y, Time.deltaTime * someSpeedFactor);
         cam.transform.position = new Vector3(x, y, -10);
         //private float tilt = 0;
