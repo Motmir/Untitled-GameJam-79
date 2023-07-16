@@ -47,4 +47,8 @@ public class Rocket : ParentBullet
 
     }
 
+    public override void CustomDelAnim()
+    {
+        throw new System.NotImplementedException();
+    }
 }
