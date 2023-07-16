@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Spaceship_controls : MonoBehaviour
 {
@@ -30,6 +32,9 @@ public class Spaceship_controls : MonoBehaviour
     public float reloadTimer, reloadTimerVal;
     public bool lockedGun;
 
+    private int ammoAmount;
+    private Amoo[] amooray; 
+
     private void Awake()
     {
         controls = new Controls();
@@ -39,6 +44,7 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.Beam.canceled += Beam;
         controls.Spaceship.Shoot.performed += Shoot;
         controls.Spaceship.SwitchScene.performed += Swich;
+        SpawnAmmo();
     }
     void OnEnable()
     {
@@ -59,6 +65,31 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.SwitchScene.Disable();
     }
 
+    private void SpawnAmmo()
+    {
+        ammoAmount = GameMaster.Instance.ammo;
+        amooray = new Amoo[ammoAmount];
+        GameObject ammoObj = (GameObject)Resources.Load("Ammo");
+        for (int i = 0; i < ammoAmount; i++)
+        {
+            GameObject Object = Instantiate(ammoObj, GameObject.Find("Canvas").transform);
+            Object.transform.SetParent(GameObject.Find("Canvas").transform);
+            Object.transform.position = new Vector3(40 * i, -390, 0) + Object.transform.position;
+            amooray[i] = Object.GetComponent<Amoo>();
+        }
+    }
+
+    public void UpdateReload()
+    {
+        for (int i = 0; i < ammoAmount; i++)
+        {
+            if (!amooray[i].full)
+            {
+                amooray[i].canReload = true;
+                return;
+            }
+        }
+    }
 
     void Move(InputAction.CallbackContext c)
     {
@@ -82,21 +113,27 @@ public class Spaceship_controls : MonoBehaviour
 
     void Shoot(InputAction.CallbackContext c)
     {
-        if (reloadTimer < 0)
+        for (int i = ammoAmount; i > 0; i--) 
         {
-            Vector2 directionVector;
-            if (lockedGun)
+            if (amooray[i].full)
             {
-                directionVector = Vector2.right;
-            } else
-            {
-                directionVector = gun.up;
+                amooray[i].Use();
+                Vector2 directionVector;
+                if (lockedGun)
+                {
+                    directionVector = Vector2.right;
+                }
+                else
+                {
+                    directionVector = gun.up;
+                }
+
+                Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
+                GameObject bulletTransform = Instantiate(spaceBullet, bulletSpawn, Quaternion.identity);
+                bulletTransform.GetComponent<SpaceBullet>().Setup(directionVector);
+                reloadTimer = reloadTimerVal;
+                return;
             }
-            
-            Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
-            GameObject bulletTransform = Instantiate(spaceBullet, bulletSpawn, Quaternion.identity);
-            bulletTransform.GetComponent<SpaceBullet>().Setup(directionVector);
-            reloadTimer = reloadTimerVal;
         }
     }
 
