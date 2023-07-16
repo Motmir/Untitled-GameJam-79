@@ -99,7 +99,7 @@ public class GameMaster : MonoBehaviour
 
             if (progress >= 100 && !levelTimerStarted)
             {
-                startTimer(0);
+                startTimer(1);
             }
             
         }
