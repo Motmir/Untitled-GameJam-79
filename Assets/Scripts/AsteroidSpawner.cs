@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class AsteroidSpawner : MonoBehaviour
+public class AsteroidSpawner : MonoBehaviour, ILevels
 {
     public GameObject sAsteroid, mAsteroid, bAsteroid;
     public Transform spaceship;
@@ -31,7 +31,7 @@ public class AsteroidSpawner : MonoBehaviour
         timer += Time.deltaTime;
 
         // Modefies timer and size with difficultyMultiplier
-        float timerOffset = UnityEngine.Random.Range(0.0f, 0.01f*difficultyMultiplier);
+        float timerOffset = Random.Range(0.0f, 0.01f*difficultyMultiplier);
         int numberOfRocks = Mathf.FloorToInt(2 * difficultyMultiplier);
 
         if(1/spawnRate < timer + timerOffset)
@@ -59,7 +59,7 @@ public class AsteroidSpawner : MonoBehaviour
     void SpawnAsteroid(GameObject Asteroid)
     {
         (Vector3 asteroidPos, Vector3 moveVector) = CreateAttackVector(Asteroid.name);
-        GameObject asteroidTransform = GameObject.Instantiate(Asteroid, asteroidPos, Quaternion.identity);
+        GameObject asteroidTransform = Instantiate(Asteroid, asteroidPos, Quaternion.identity);
         asteroidTransform.GetComponent<Asteroid>().Setup(moveVector);
     }
 
@@ -105,5 +105,53 @@ public class AsteroidSpawner : MonoBehaviour
         asteroidPos.y += yPos;
         moveVector.y += yMove;
         return (asteroidPos, moveVector);
+    }
+
+    public void Level1()
+    {
+        difficultyMultiplier = 0.5f;
+        spawnRate = 1;
+    }
+
+    public void Level2()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Level3()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Level4()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Level5()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void CallLevel(int lv)
+    {
+        switch (lv)
+        {
+            case 1:
+                Level1();
+                break;
+            case 2:
+                Level2();
+                break;
+            case 3:
+                Level3();
+                break;
+            case 4:
+                Level4();
+                break;
+            case 5:
+                Level5();
+                break;
+        }
     }
 }

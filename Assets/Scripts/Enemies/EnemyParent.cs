@@ -9,11 +9,24 @@ public abstract class EnemyParent : EarthEntityParent
     public float reloadTimer = 0;
     private float spinSpeed = 0;
     public GameObject bullet;
+    public int hitPoints = 1;
     Vector3 rotationSpin;
     public override void Collected()
     {
         //Cannot be collected, but write to log to show it works
         Debug.Log("Enemy cannot be collected");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "ShipBullet(Clone)")
+        {
+            hitPoints -= 1;
+            if (hitPoints <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     public override void FixedUpdate()

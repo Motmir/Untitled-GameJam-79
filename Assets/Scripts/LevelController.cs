@@ -9,12 +9,6 @@ public class LevelController : MonoBehaviour, ILevels
     private float cowTimer, enemyTimer, cowTimerVal, enemyTimerVal;
     GameObject cow, enemy;
 
-    public void Awake()
-    {
-        Debug.Log("Starting level 1");
-        Level1();
-    }
-
     public float GetCowX()
     {
         float camPosX = GameObject.Find("PlayerCam").transform.position.x;
@@ -72,7 +66,7 @@ public class LevelController : MonoBehaviour, ILevels
 
     public void Level2()
     {
-        cowsToSpawn = 15; enemiesToSpawn = 3; cowTimerVal = 10; enemyTimerVal = 60;
+        cowsToSpawnVal = 15; enemiesToSpawnVal = 1; cowTimerVal = 10; enemyTimerVal = 60;
         cow = (GameObject)Resources.Load("Cow");
         enemy = (GameObject)Resources.Load("Farmer");
     }
@@ -90,5 +84,28 @@ public class LevelController : MonoBehaviour, ILevels
     public void Level5()
     {
         throw new System.NotImplementedException();
+    }
+
+
+    public void CallLevel(int lv)
+    {
+        switch (lv)
+        {
+            case 1:
+                Level1();
+                break;
+            case 2:
+                Level2();
+                break;
+            case 3:
+                Level3();
+                break;
+            case 4:
+                Level4();
+                break;
+            case 5:
+                Level5();
+                break;
+        }
     }
 }
