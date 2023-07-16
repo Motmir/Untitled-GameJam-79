@@ -53,7 +53,7 @@ public class LASER : ParentBullet
     {
         if (collision.gameObject.name == "Spaceship")
         {
-            GameObject.Find("GameMaster").GetComponent<GameMaster>().DecreaseCows();
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().DecreaseCows(5);
             CustomDelAnim();
             endTimer = 0.2f;
         }
