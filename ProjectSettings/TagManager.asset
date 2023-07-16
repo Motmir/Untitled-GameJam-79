@@ -14,7 +14,7 @@ TagManager:
   - Player
   - Bullet
   - Cow
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -44,15 +44,18 @@ TagManager:
   - name: Background
     uniqueID: 3824756237
     locked: 0
-  - name: Ground
-    uniqueID: 2315681425
-    locked: 0
   - name: Objects
     uniqueID: 830394239
+    locked: 0
+  - name: Ground
+    uniqueID: 2315681425
     locked: 0
   - name: Entities
     uniqueID: 1064197721
     locked: 0
   - name: Player
     uniqueID: 3778226363
+    locked: 0
+  - name: UI
+    uniqueID: 2350322021
     locked: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -23,6 +24,11 @@ public class Spaceship_controls : MonoBehaviour
     public Vector2 maxSpeed = new Vector2(5, 5);
     public Vector2 drag = new Vector2(0.1f, 0.1f);
 
+    public Vector2 FloorRoofShip = new Vector2(-50,50);
+    public Vector2 FloorRoofCam = new Vector2(-40, 40);
+
+    public int someSpeedFactor, xOffset;
+
     private void Awake()
     {
         controls = new Controls();
@@ -31,6 +37,7 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.Beam.started += Beam;
         controls.Spaceship.Beam.canceled += Beam;
         controls.Spaceship.Shoot.performed += Shoot;
+        controls.Spaceship.SwitchScene.performed += Swich;
     }
     void OnEnable()
     {
@@ -39,6 +46,7 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.Aim.Enable();
         controls.Spaceship.Beam.Enable();
         controls.Spaceship.Shoot.Enable();
+        controls.Spaceship.SwitchScene.Enable();
     }
     void OnDisable()
     {
@@ -47,6 +55,7 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.Aim.Disable();
         controls.Spaceship.Beam.Disable();
         controls.Spaceship.Shoot.Disable();
+        controls.Spaceship.SwitchScene.Disable();
     }
 
 
@@ -75,8 +84,17 @@ public class Spaceship_controls : MonoBehaviour
         bool shootPressed = c.ReadValue<float>() > 0.5f;
 
     }
-    
 
+    void Swich(InputAction.CallbackContext c)
+    {
+        GameMaster.Instance.SwichScenes();
+    }
+
+
+    private void LateUpdate()
+    {
+
+    }
     void FixedUpdate()
     {
         //ship movement
@@ -88,11 +106,16 @@ public class Spaceship_controls : MonoBehaviour
         if (currentSpeed.y > maxSpeed.y) { currentVelocity.y = maxSpeed.y * Mathf.Sign(currentVelocity.y); }
         spaceshipRB.velocity = currentVelocity;
 
+        spaceshipRB.AddTorque( Vector3.Dot(Vector3.up, -spaceshipRB.transform.right));
+        
+        float x = Mathf.Lerp(cam.transform.position.x, shipbody.position.x + xOffset, Time.deltaTime * someSpeedFactor);
+        float y = Mathf.Lerp(cam.transform.position.y, shipbody.position.y, Time.deltaTime * someSpeedFactor);
 
-    //private float tilt = 0;
-    //public float maxTilt = 90f;
-    //tilt = Mathf.Lerp(tilt, Mathf.Sign(currentVelocity.x) * (speed) / (maxSpeed.x), 0.5f);
-    //shipbody.rotation = Quaternion.Euler(0, 0, -maxTilt * tilt);
+        cam.transform.position = new Vector3(x, y, -10);
+        //private float tilt = 0;
+        //public float maxTilt = 90f;
+        //tilt = Mathf.Lerp(tilt, Mathf.Sign(currentVelocity.x) * (speed) / (maxSpeed.x), 0.5f);
+        //shipbody.rotation = Quaternion.Euler(0, 0, -maxTilt * tilt);
 
     }
 }

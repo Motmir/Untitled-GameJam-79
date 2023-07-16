@@ -9,10 +9,12 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     public GameObject ship;
     public Transform shipPos;
     public Rigidbody2D rb;
-    public int dirTimer;
+    public float dirTimer, audioTimer;
     public bool canSee, beamed, grounded, spinDir;
     public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
+    public AudioClip[] beamedClips, passiveClips, spawnClips, spotClips;
+    public AudioSource entityAudio;
 
     public void CanSee()
     {
@@ -44,13 +46,48 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
 
     abstract public void FixedUpdate();
 
+    public void Update()
+    {
+        /*if (audioTimer < 0)
+        {
+            PassiveAudio();
+            audioTimer = UnityEngine.Random.Range(5, 11);
+        } else
+        {
+            audioTimer -= Time.deltaTime;
+        }*/
+    }
     abstract public void Move();
 
     // Start is called before the first frame update
     void Start()
     {
-        ship = GameObject.Find("Spaceship");
+        ship = GameObject.Find("Spaceship").gameObject;
         rb = transform.GetComponent<Rigidbody2D>();
+        audioTimer = UnityEngine.Random.Range(5, 11);
+    }
+    public void BeamedAudio()
+    {
+        int i = UnityEngine.Random.Range(0, beamedClips.Length);
+        entityAudio.PlayOneShot(beamedClips[i], 0.5f);
+    }
+
+    public void SpottedAudio()
+    {
+        int i = UnityEngine.Random.Range(0, spotClips.Length);
+        entityAudio.PlayOneShot(spotClips[i], 0.5f);
+    }
+
+    public void PassiveAudio()
+    {
+        int i = UnityEngine.Random.Range(0, passiveClips.Length);
+        entityAudio.PlayOneShot(passiveClips[i], 0.5f);
+    }
+
+    public void SpawnedAudio()
+    {
+        int i = UnityEngine.Random.Range(0, spawnClips.Length);
+        entityAudio.PlayOneShot(spawnClips[i], 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +96,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         {
             beamed = true;
             grounded = false;
+            BeamedAudio();
             TractorBeamed();
         }
         if (collision.gameObject.name == "Collector")
@@ -66,10 +104,9 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
             Collected();
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ground placeholder")
+        if (collision.gameObject.name == "Earth ground")
         {
             grounded = true;
             dirTimer = 0;
@@ -81,7 +118,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         if (collision.gameObject.name == "Beam")
         {
             beamed = false;
-            moveVector = new Vector2(0, 0);
+            moveVector = new Vector2(moveVector.x, moveVector.y);
             //not TractorBeamed();
         }
     }

@@ -18,14 +18,13 @@ public class Asteroid : ParentBullet
         transform.Rotate(0, 0, 100*Time.deltaTime*spinSpeed);
     }
 
-    public override void OnCollisionEnter2D(Collision2D collision)
+    public override void FixedUpdate()
     {
-        //Still needs to implement damaging the ship
-        if (collision.gameObject.name == "Spaceship")
+        duration -= Time.deltaTime;
+        if (duration < 0)
         {
             Destroy(gameObject);
         }
     }
-
 }
 

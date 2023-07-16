@@ -9,15 +9,16 @@ public abstract class ParentBullet : MonoBehaviour
     public float duration = 5;
 
     public abstract void Setup(Vector3 Dir);
+    public abstract void FixedUpdate();
 
-    public abstract void OnCollisionEnter2D(Collision2D collision);
-
-    public void FixedUpdate()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        duration -= Time.deltaTime;
-        if (duration < 0)
+        if (collision.gameObject.name == "Spaceship")
         {
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().DecreaseCows();
             Destroy(gameObject);
         }
     }
+
+    
 }
