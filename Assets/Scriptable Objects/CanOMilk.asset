@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6426d5c459546b94cabbb8ffa87e575f, type: 3}
-  m_Name: Fedora
+  m_Name: CanOMilk
   m_EditorClassIdentifier: 
-  title: Fedora
-  description: A fashionable fedora
+  title: Can O'Milk
+  description: Calcium is good for your bones. Stonger defense
   baseCost: 20
+  artwork: {fileID: 21300000, guid: b88869905e2b6ff42957cad6a8ee85e0, type: 3}
