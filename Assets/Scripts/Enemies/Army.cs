@@ -9,7 +9,7 @@ public class Army : EnemyParent
 {    
     public void Awake()
     {
-        bullet = (GameObject)Resources.Load("Army_Bullet");
+        bullet = (GameObject)Resources.Load("Rocket");
     }
     
     public override void Shoot()
@@ -17,7 +17,7 @@ public class Army : EnemyParent
         Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
 
         GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);
-        bulletTransform.GetComponent<Armybullet>().Setup(directionVector);
+        bulletTransform.GetComponent<Rocket>().Setup(directionVector);
     }
 
     public override void CanShoot()
@@ -30,10 +30,5 @@ public class Army : EnemyParent
                 Shoot();
             }
         }
-    }
-
-    public override void BeamedAudio()
-    {
-        throw new System.NotImplementedException();
     }
 }

@@ -9,13 +9,12 @@ public class Farmer : EnemyParent
 {
     public void Awake()
     {
-        bullet = (GameObject)Resources.Load("Farmer_Bullet");
-
+        bullet = (GameObject)Resources.Load("Bullet");
     }
 
-    public override void BeamedAudio()
+    public void Start()
     {
-        throw new System.NotImplementedException();
+        SpawnedAudio();
     }
 
     public override void Shoot()
@@ -29,7 +28,7 @@ public class Farmer : EnemyParent
             offsetVector.y += Random.Range(-0.15f, 0.15f);
 
             GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);            
-            bulletTransform.GetComponent<Farmerbullet>().Setup(offsetVector);
+            bulletTransform.GetComponent<Bullet>().Setup(offsetVector);
         }
     }
 
