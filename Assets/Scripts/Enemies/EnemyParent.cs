@@ -17,23 +17,6 @@ public abstract class EnemyParent : EarthEntityParent
         Debug.Log("Enemy cannot be collected");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "ShipBullet(Clone)")
-        {
-            hitPoints -= 1;
-            if (hitPoints <= 0)
-            {
-                Destroy(gameObject);
-            }
-        } else if (collision.gameObject.name == "Earth ground")
-            {
-                grounded = true;
-                dirTimer = 0;
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-    }
-
     public override void FixedUpdate()
     {
         FindShip();
@@ -120,5 +103,24 @@ public abstract class EnemyParent : EarthEntityParent
             moveVector.y = 0;
         }
         rb.velocity = moveVector;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Earth ground")
+        {
+            grounded = true;
+            dirTimer = 0;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if (collision.gameObject.name == "ShipBullet(Clone)")
+        {
+            hitPoints -= 1;
+            if (hitPoints <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
