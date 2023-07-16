@@ -26,7 +26,12 @@ public abstract class EnemyParent : EarthEntityParent
             {
                 Destroy(gameObject);
             }
-        }
+        } else if (collision.gameObject.name == "Earth ground")
+            {
+                grounded = true;
+                dirTimer = 0;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
     }
 
     public override void FixedUpdate()
