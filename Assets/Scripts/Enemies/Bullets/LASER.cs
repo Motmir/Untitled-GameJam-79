@@ -12,7 +12,6 @@ public class LASER : ParentBullet
 
     public override void Setup(Vector3 Start)
     {
-        Debug.Log("LASEEEEER");
         StartVector = Start;
         rb = transform.GetComponent<Rigidbody2D>();
         float rotation = Mathf.Rad2Deg * Mathf.Atan2(Start.y, Start.x);
