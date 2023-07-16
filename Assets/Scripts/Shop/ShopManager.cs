@@ -8,8 +8,7 @@ public class ShopManager : MonoBehaviour
 {
     // https://www.youtube.com/watch?v=EEtOt0Jf7PQ&list=PL8K0QjCk8ZmhIocxRo6P90O55yDHGpPlb&index=3&t=628s
 
-
-    public int coins;
+    private int cowins;
     public TMP_Text coinUI;
     public ShopItem[] shopItems;
     public ShopTemplate[] shopPanels;
@@ -26,22 +25,9 @@ public class ShopManager : MonoBehaviour
             // Only the panles that has items are shown in runtime
             shopPanelsGO[i].SetActive(true);
         }
-
-        coinUI.text = "Coins: " + coins.ToString();
+        Debug.Log(Mathf.FloorToInt(GameMaster.Instance.cownter / 10));
+        coinUI.text = "COWins: " + Mathf.FloorToInt(GameMaster.Instance.cownter/10).ToString();
         LoadPanels(); 
-        CheckPurchaseable();
-    }
-
-    void Update()
-    {
-        
-    }
-
-    // Press a button and get coins
-    public void AddCoins()
-    {
-        coins++;
-        coinUI.text = "Coins: " + coins.ToString();
         CheckPurchaseable();
     }
 
@@ -60,9 +46,11 @@ public class ShopManager : MonoBehaviour
 
     public void CheckPurchaseable()
     {
-        for(int i = 0;i < shopItems.Length; i++)
+        cowins = Mathf.FloorToInt(GameMaster.Instance.cownter / 10);
+        for (int i = 0;i < shopItems.Length; i++)
         {
-            if (coins >= shopItems[i].baseCost) // if I have enough money
+            
+            if (cowins >= shopItems[i].baseCost) // if I have enough money
             {
                 myPurchaseBtns[i].interactable = true;
             } else
@@ -74,10 +62,10 @@ public class ShopManager : MonoBehaviour
 
     public void PurchaseItem(int btnNo)
     {
-        if (coins >= shopItems[btnNo].baseCost)
+        if (cowins >= shopItems[btnNo].baseCost)
         {
-            coins = coins - shopItems[btnNo].baseCost;
-            coinUI.text = "Coins: " + coins.ToString();
+            GameMaster.Instance.DecreaseCows(shopItems[btnNo].baseCost*10);
+            coinUI.text = "Coins: " + cowins.ToString();
             CheckPurchaseable();
             // Unlock Item
             // TODO: Add this functionality

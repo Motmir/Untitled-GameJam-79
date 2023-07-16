@@ -12,7 +12,9 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
-    private int cownter = 0, spaceSceneGoalDist = 200, banked = 0;
+    public int cownter { private set; get; }
+
+    private int spaceSceneGoalDist = 200, banked = 0;
     private int level = 1;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
@@ -32,29 +34,28 @@ public class GameMaster : MonoBehaviour
             return;
         }
         Instance = this;
-        fillImg = GameObject.Find("FillImage").gameObject;
-        spaceShip = GameObject.Find("Spaceship").gameObject;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             UpdateCows();
             barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + (Screen.width * 0.12f);
             endPos = Screen.width - (Screen.width * 0.12f);
-        } 
+        }
+        cownter = 30;
     }
     public void UpdateCows()
     {
         GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cownter: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
     }
-    public void IncreaseCows()
+    public void IncreaseCows(int cows)
     {
-        cownter++;
+        cownter+=cows;
         UpdateCows();
     }
 
-    public void DecreaseCows()
+    public void DecreaseCows(int cows)
     {
-        cownter--;
+        cownter-=cows;
         UpdateCows();
     }
 
@@ -77,9 +78,20 @@ public class GameMaster : MonoBehaviour
             cownter += banked;
             banked = 0;
             level++;
+            GameObject cow = (GameObject) Resources.Load("Cow_Mars");
+            for (int i = 0; i < cownter; i++)
+            {
+                GameObject.Instantiate(cow, new Vector3(0, 0, 0), Quaternion.identity);
+            }
             SceneManager.LoadScene("Farm Scene");
             
         }
+    }
+
+    public void Update()
+    {
+        Debug.Log("hi");
+        Debug.Log(cownter);
     }
 
     public void UpdateReload()
@@ -99,7 +111,7 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        UpdateReload();
+        
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
