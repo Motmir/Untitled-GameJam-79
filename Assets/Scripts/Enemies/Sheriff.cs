@@ -12,7 +12,7 @@ public class Sheriff : EnemyParent
 
     public void Awake()
     {
-        bullet = (GameObject)Resources.Load("Farmer_Bullet");
+        bullet = (GameObject)Resources.Load("Bullet");
 
     }
 
@@ -46,6 +46,6 @@ public class Sheriff : EnemyParent
         GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);
         
         directionVector *= 2;
-        bulletTransform.GetComponent<Farmerbullet>().Setup(directionVector);
+        bulletTransform.GetComponent<Bullet>().Setup(directionVector);
     }
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7879439746387143221}
   - component: {fileID: 7961193321714026967}
   - component: {fileID: 4964127708866544148}
-  - component: {fileID: 2242481367639980877}
+  - component: {fileID: 1026027373541360231}
   m_Layer: 7
-  m_Name: Army_bullet
+  m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7879439746387143221
 SpriteRenderer:
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2242481367639980877
+--- !u!114 &1026027373541360231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2455432106180295504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9720fdfb5bd8a34bb251ba10d4cfc2, type: 3}
+  m_Script: {fileID: 11500000, guid: c9683afcf0ca4b1a9af933f379d36b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
-  adjustRate: 0.5
+  adjustRate: 0.2
   timer: 0
