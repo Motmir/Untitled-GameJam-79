@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
-    public int cownter = 0, spaceSceneGoalDist = 30;
+    private int cownter = 0, spaceSceneGoalDist = 200, banked = 0;
     private int level = 1;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
@@ -64,6 +64,8 @@ public class GameMaster : MonoBehaviour
         levelTimerStarted = false;
         if (scene == 0)
         {
+            banked = cownter;
+            cownter = 0;
             SceneManager.LoadScene("Earth Scene");
             GameObject.Find("LevelManager").GetComponent<LevelController>().CallLevel(level);
         } else if (scene == 1)
@@ -72,8 +74,11 @@ public class GameMaster : MonoBehaviour
             GameObject.Find("AsteroidController").GetComponent<AsteroidSpawner>().CallLevel(level);
         } else if (scene == 2)
         {
-            SceneManager.LoadScene("Farm Scene");
+            cownter += banked;
+            banked = 0;
             level++;
+            SceneManager.LoadScene("Farm Scene");
+            
         }
     }
 

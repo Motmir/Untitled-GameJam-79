@@ -56,7 +56,7 @@ public class Parallax : MonoBehaviour
         }
         for (int i = 0; i < segments.Length; i++)
         {
-            int j = (Mathf.Abs(currentSpace) + i) % segments.Length  ;
+            int j = (Mathf.Abs(currentSpace) + i) % segments.Length;
             float x = cam.transform.position.x + (currentSpace + j - shift) * length - distX*parallaxEffect;
             float y = cam.transform.position.y - distY * parallaxEffect;
 
