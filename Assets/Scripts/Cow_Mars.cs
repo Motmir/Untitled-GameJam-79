@@ -1,14 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Xml.Linq;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Drawing.Inspector.PropertyDrawers;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.XR;
 
 public class Cow_Mars : MonoBehaviour
 {

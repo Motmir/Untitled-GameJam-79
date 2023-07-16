@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
-    public int cownter { private set; get; }
+    public int cownter;
 
     public int spaceSceneGoalDist = 200, banked = 0, ammo = 3;
     private int level = 1;
@@ -15,7 +15,6 @@ public class GameMaster : MonoBehaviour
     private bool levelTimerStarted = false;
     private float startLevelTime;
     private float remainingLevelTime;
-    private GameObject spaceShip;
 
     private Transform sun;
     private Transform cam;
@@ -30,7 +29,7 @@ public class GameMaster : MonoBehaviour
             return;
         }
         Instance = this;
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().name == "Space")
         {
             UpdateCows();
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + (Screen.width * 0.12f);
@@ -41,6 +40,7 @@ public class GameMaster : MonoBehaviour
 
     public void UpdateCows()
     {
+        Debug.Log("Updating Cows" + cownter);
         GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cownter: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
     }
     public void IncreaseCows(int cows)
@@ -57,18 +57,18 @@ public class GameMaster : MonoBehaviour
 
     public void SwichScenes()
     {
-        int scene = SceneManager.GetActiveScene().buildIndex;
+        String scene = SceneManager.GetActiveScene().name;
         levelTimerStarted = false;
-        if (scene == 0)
+        if (scene == "Farm Scene")
         {
             banked = cownter;
             cownter = 0;
             SceneManager.LoadScene("Earth Scene");
 
-        } else if (scene == 1)
+        } else if (scene == "Earth Scene")
         {
             SceneManager.LoadScene("Space");
-        } else if (scene == 2)
+        } else if (scene == "Space")
         {
             cownter += banked;
             banked = 0;
@@ -115,7 +115,7 @@ public class GameMaster : MonoBehaviour
         }
 
         
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().name == "Space")
         {
             float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
             if (progress >= 100)
@@ -132,7 +132,7 @@ public class GameMaster : MonoBehaviour
             
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().name == "Earth Scene")
         {
             if (!levelTimerStarted)
             {
