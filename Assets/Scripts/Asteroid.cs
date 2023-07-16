@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Asteroid : ParentBullet
 {
@@ -25,6 +26,12 @@ public class Asteroid : ParentBullet
         {
             Destroy(gameObject);
         }
+    }
+
+    public override void CustomDelAnim()
+    {
+        GameObject effect = Instantiate(breakAnim, transform.position, Quaternion.identity);
+        effect.transform.GetChild(0).GetComponent<VisualEffect>().Play();
     }
 }
 
