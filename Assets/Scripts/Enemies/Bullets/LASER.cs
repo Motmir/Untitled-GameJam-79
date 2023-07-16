@@ -7,6 +7,7 @@ public class LASER : ParentBullet
 {
     Vector3 StartVector, FinishVector, AdjustVector;
     float durationStart;
+    float endTimer = 5f;
     
     public void setFinishVector(Vector3 Finish){ FinishVector = Finish; }
 
@@ -34,8 +35,10 @@ public class LASER : ParentBullet
     public override void FixedUpdate()
     {
         duration -= Time.deltaTime;
+        endTimer -= Time.deltaTime;
         adjustBeam();
-        if (duration < 0)
+        
+        if (duration < 0 || endTimer < 0)
         {
             Destroy(gameObject);
         }
@@ -51,10 +54,10 @@ public class LASER : ParentBullet
         if (collision.gameObject.name == "Spaceship")
         {
             GameObject.Find("GameMaster").GetComponent<GameMaster>().DecreaseCows();
-            GameObject.Find("Spaceship").GetComponent<Rigidbody2D>().AddForce(AdjustVector);
             CustomDelAnim();
-            Destroy(gameObject);
+            endTimer = 0.2f;
         }
+        
     }
 
 }
