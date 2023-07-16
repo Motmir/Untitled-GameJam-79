@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698446560236554037}
   - component: {fileID: 8479341386134181041}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6612828581610184607}
   - component: {fileID: 9022662390091945217}
   - component: {fileID: 2321160446314786883}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: BigAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

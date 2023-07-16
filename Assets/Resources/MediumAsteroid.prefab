@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6612828581610184607}
   - component: {fileID: 9022662390091945217}
   - component: {fileID: 7014057416441082683}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: MediumAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4001617380805756782}
   - component: {fileID: 5802888108555880596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

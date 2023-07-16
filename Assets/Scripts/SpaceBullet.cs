@@ -36,7 +36,8 @@ public class SpaceBullet : MonoBehaviour
         if (collision.gameObject.name.EndsWith("Asteroid(Clone)") == true)
         {
             //CustomDelAnim();
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
     }
 }
