@@ -86,8 +86,8 @@ Kindergardener</br>
 Hanna Konstanse Aasen Øen  
 </br>
 Special thanks to:</br>
-Solveig Opheim Auning
-Ullevålseter Sportsstue DA
+Solveig Opheim Auning  
+Ullevålseter Sportsstue DA  
 
 
 
