@@ -116,12 +116,14 @@ MonoBehaviour:
   goal: {x: 0, y: 0}
   directionVector: {x: 0, y: 0}
   moveVector: {x: 0, y: 0}
-  mooAudio: {fileID: 6987665921112372896}
   beamedClips:
   - {fileID: 8300000, guid: a0f45b601306a10489b83093def6a583, type: 3}
   - {fileID: 8300000, guid: 3333fe34d097b264682098589d81a69f, type: 3}
   - {fileID: 8300000, guid: 3ebde881371f60e42b838484569b451e, type: 3}
   passiveClips: []
+  spawnClips: []
+  spotClips: []
+  entityAudio: {fileID: 6987665921112372896}
 --- !u!61 &1117457319501324269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,7 +226,7 @@ MonoBehaviour:
   - {x: 1.0209262, y: -1.1494869, z: 0}
   m_ShapePathHash: 830619003
   m_Mesh: {fileID: 0}
-  m_InstanceId: 68800
+  m_InstanceId: 78404
   m_LocalBounds:
     m_Center: {x: -0.015124679, y: -0.023127556, z: 0}
     m_Extent: {x: 1.0360508, y: 1.2331138, z: 0}
@@ -240,7 +242,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a0f45b601306a10489b83093def6a583, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.295
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0

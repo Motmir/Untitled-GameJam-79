@@ -6,13 +6,6 @@ using UnityEngine;
 
 public class Cow : EarthEntityParent
 {
-    public AudioSource mooAudio;
-    public AudioClip[] beamedClips, passiveClips;
-    public override void BeamedAudio()
-    {
-        int i = Random.Range(0, beamedClips.Length);
-        mooAudio.PlayOneShot(beamedClips[i], 0.5f);
-    }
 
     public override void Move()
     {

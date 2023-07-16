@@ -13,6 +13,8 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     public bool canSee, beamed, grounded, spinDir;
     public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
+    public AudioClip[] beamedClips, passiveClips, spawnClips, spotClips;
+    public AudioSource entityAudio;
 
     public void CanSee()
     {
@@ -52,7 +54,30 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         ship = GameObject.Find("Spaceship");
         rb = transform.GetComponent<Rigidbody2D>();
     }
-    public abstract void BeamedAudio();
+    public void BeamedAudio()
+    {
+        int i = UnityEngine.Random.Range(0, beamedClips.Length);
+        entityAudio.PlayOneShot(beamedClips[i], 0.5f);
+    }
+
+    public void SpottedAudio()
+    {
+        int i = UnityEngine.Random.Range(0, spotClips.Length);
+        entityAudio.PlayOneShot(spotClips[i], 0.5f);
+    }
+
+    public void PassiveAudio()
+    {
+        int i = UnityEngine.Random.Range(0, passiveClips.Length);
+        entityAudio.PlayOneShot(passiveClips[i], 0.5f);
+    }
+
+    public void SpawnedAudio()
+    {
+        int i = UnityEngine.Random.Range(0, spawnClips.Length);
+        entityAudio.PlayOneShot(spawnClips[i], 0.5f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Beam")
