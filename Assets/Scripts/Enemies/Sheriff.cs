@@ -16,6 +16,11 @@ public class Sheriff : EnemyParent
 
     }
 
+    public override void BeamedAudio()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void CanShoot()
     {
         if (canSee)

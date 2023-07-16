@@ -107,9 +107,10 @@ public class Spaceship_controls : MonoBehaviour
         spaceshipRB.velocity = currentVelocity;
 
         spaceshipRB.AddTorque( Vector3.Dot(Vector3.up, -spaceshipRB.transform.right));
-
+        
         float x = Mathf.Lerp(cam.transform.position.x, shipbody.position.x + xOffset, Time.deltaTime * someSpeedFactor);
         float y = Mathf.Lerp(cam.transform.position.y, shipbody.position.y, Time.deltaTime * someSpeedFactor);
+
         cam.transform.position = new Vector3(x, y, -10);
         //private float tilt = 0;
         //public float maxTilt = 90f;

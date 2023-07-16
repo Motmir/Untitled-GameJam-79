@@ -32,4 +32,8 @@ public class Army : EnemyParent
         }
     }
 
+    public override void BeamedAudio()
+    {
+        throw new System.NotImplementedException();
+    }
 }
