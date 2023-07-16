@@ -119,7 +119,7 @@ Transform:
   - {fileID: 4374743817961824311}
   - {fileID: 1907126223950561593}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6734686548421689810
 Rigidbody2D:
@@ -219,7 +219,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -66894
+  m_InstanceId: 60820
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -239,6 +239,7 @@ MonoBehaviour:
   shipPos: {fileID: 0}
   rb: {fileID: 6734686548421689810}
   dirTimer: 0
+  audioTimer: 0
   canSee: 0
   beamed: 0
   grounded: 0
@@ -249,8 +250,14 @@ MonoBehaviour:
   goal: {x: 0, y: 0}
   directionVector: {x: 0, y: 0}
   moveVector: {x: 0, y: 0}
+  beamedClips: []
+  passiveClips: []
+  spawnClips: []
+  spotClips: []
+  entityAudio: {fileID: 0}
   reloadTimer: 0
   bullet: {fileID: 2455432106180295504, guid: 10255bc7bf66366d6be5f9418b0d7914, type: 3}
+  hitPoints: 1
 --- !u!1 &7483220330271069941
 GameObject:
   m_ObjectHideFlags: 0

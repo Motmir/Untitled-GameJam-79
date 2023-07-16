@@ -9,6 +9,10 @@ public class LevelController : MonoBehaviour, ILevels
     private float cowTimer, enemyTimer, cowTimerVal, enemyTimerVal;
     GameObject cow, enemy;
 
+    public void Awake()
+    {
+        //Level3();
+    }
     public float GetCowX()
     {
         float camPosX = GameObject.Find("PlayerCam").transform.position.x;
@@ -89,7 +93,7 @@ public class LevelController : MonoBehaviour, ILevels
     {
         cowsToSpawnVal = 60; enemiesToSpawnVal = 1; cowTimerVal = 10; enemyTimerVal = 20;
         cow = (GameObject)Resources.Load("Cow");
-        enemy = (GameObject)Resources.Load("Army");
+        enemy = (GameObject)Resources.Load("LASERCOW");
     }
 
 

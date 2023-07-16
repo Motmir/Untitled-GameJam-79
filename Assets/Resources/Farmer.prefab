@@ -189,7 +189,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 80490
+  m_InstanceId: 60852
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   audioTimer: 0
   canSee: 0
   beamed: 0
-  grounded: 0
+  grounded: 1
   spinDir: 0
   detectionRange: 10
   movement: {x: 0, y: 0}
@@ -231,6 +231,7 @@ MonoBehaviour:
   entityAudio: {fileID: 5068847302420315197}
   reloadTimer: 0
   bullet: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
+  hitPoints: 1
 --- !u!82 &5068847302420315197
 AudioSource:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 98cfc42e719a7d18db6874fa7488be80, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 1
   Loop: 0

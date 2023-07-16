@@ -28,7 +28,7 @@ public class SpaceBullet : MonoBehaviour
 
         float rotation = Mathf.Rad2Deg * Mathf.Atan2(Dir.y, Dir.x);
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
-        rb.velocity = Dir * 10;
+        rb.velocity = Dir * 30;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
