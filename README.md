@@ -27,7 +27,7 @@ military comander: bazooka, medium range, homing, low reload rate
 <img src="https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/6441e892-5b28-4206-9746-928e96c98ce2" width="400" Height="200">
 worry.
 
-![image](https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/b086a3c9-cab8-4e04-b96f-88f15e6584a8)
+<img src="https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/b086a3c9-cab8-4e04-b96f-88f15e6584a8" width="400" Height="200">
 perchance
 
 
