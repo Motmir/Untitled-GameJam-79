@@ -31,10 +31,10 @@ public class GameMaster : MonoBehaviour
             return;
         }
         Instance = this;
+        fillImg = GameObject.Find("FillImage").gameObject;
+        spaceShip = GameObject.Find("Spaceship").gameObject;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            fillImg = GameObject.Find("FillImage").gameObject;
-            spaceShip = GameObject.Find("Spaceship").gameObject;
             UpdateCows();
             barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + (Screen.width * 0.12f);
@@ -90,10 +90,9 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-
+        UpdateReload();
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            UpdateReload();
             float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
             float currentPos = startPos + progress * ((endPos - startPos) / 100);
             GameObject.Find("Tracker").GetComponent<RectTransform>().position = new Vector3(currentPos, GameObject.Find("Tracker").GetComponent<RectTransform>().position.y, GameObject.Find("Tracker").GetComponent<RectTransform>().position.z);

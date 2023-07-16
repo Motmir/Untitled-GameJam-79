@@ -28,6 +28,7 @@ public class Spaceship_controls : MonoBehaviour
 
     public int someSpeedFactor, xOffset;
     public float reloadTimer, reloadTimerVal;
+    public bool lockedGun;
 
     private void Awake()
     {
@@ -83,7 +84,15 @@ public class Spaceship_controls : MonoBehaviour
     {
         if (reloadTimer < 0)
         {
-            Vector2 directionVector = Vector2.right;
+            Vector2 directionVector;
+            if (lockedGun)
+            {
+                directionVector = Vector2.right;
+            } else
+            {
+                directionVector = gun.up;
+            }
+            
             Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
             GameObject bulletTransform = Instantiate(spaceBullet, bulletSpawn, Quaternion.identity);
             bulletTransform.GetComponent<SpaceBullet>().Setup(directionVector);
