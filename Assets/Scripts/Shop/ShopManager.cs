@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     public ShopTemplate[] shopPanels;
     public GameObject[] shopPanelsGO;
     public Button[] myPurchaseBtns;
+    public GameObject shopCanvas;
     
 
     void Start()
@@ -79,7 +80,11 @@ public class ShopManager : MonoBehaviour
             // TODO: Add this functionality
         }
     }
- 
+
+    public void ExitShop()
+    {
+        shopCanvas.SetActive(false);
+    }
 
 
 }

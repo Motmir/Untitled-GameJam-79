@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4120158897616468558}
   - component: {fileID: 2501990284231091291}
   - component: {fileID: 699264757621428281}
+  - component: {fileID: 8815300276433464767}
   m_Layer: 8
   m_Name: Cow_Mars
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3658858306198812218
 SpriteRenderer:
@@ -217,7 +218,7 @@ MonoBehaviour:
   - {x: 1.0209262, y: -1.1494869, z: 0}
   m_ShapePathHash: 830619003
   m_Mesh: {fileID: 0}
-  m_InstanceId: -24632
+  m_InstanceId: 30084
   m_LocalBounds:
     m_Center: {x: -0.015124679, y: -0.023127556, z: 0}
     m_Extent: {x: 1.0360508, y: 1.2331138, z: 0}
@@ -235,3 +236,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4120158897616468558}
   decisionTime: {x: 1, y: 4}
+--- !u!114 &8815300276433464767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491635262097203895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b06603dcd1f9cd46aa97b093a45f9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
