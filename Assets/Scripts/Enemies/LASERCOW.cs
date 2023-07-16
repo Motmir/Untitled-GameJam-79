@@ -100,7 +100,6 @@ public class LASERCOW : EarthEntityParent
 
     public void Shoot()
     {   
-        Debug.Log("Pew Pew Pew");
         Vector2 bulletSpawn = (Vector2)transform.position + (LaserStart / 2) + new Vector2(0, -0.2f);
 
         GameObject bulletTransform = Instantiate(bullet, bulletSpawn, Quaternion.identity);
