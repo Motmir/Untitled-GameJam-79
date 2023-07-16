@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
     public int cownter = 0, spaceSceneGoalDist = 30;
+    private int level = 1;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
     private float startLevelTime;
@@ -64,12 +65,15 @@ public class GameMaster : MonoBehaviour
         if (scene == 0)
         {
             SceneManager.LoadScene("Earth Scene");
+            GameObject.Find("LevelManager").GetComponent<LevelController>().CallLevel(level);
         } else if (scene == 1)
         {
             SceneManager.LoadScene("Space");
+            GameObject.Find("AsteroidController").GetComponent<AsteroidSpawner>().CallLevel(level);
         } else if (scene == 2)
         {
             SceneManager.LoadScene("Farm Scene");
+            level++;
         }
     }
 
