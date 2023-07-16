@@ -17,6 +17,7 @@ public class GameMaster : MonoBehaviour
     private bool levelTimerStarted = false;
     private float startLevelTime;
     private float remainingLevelTime;
+    private GameObject fillImg, spaceShip;
 
     private Transform sun;
     private Transform cam;
@@ -32,6 +33,8 @@ public class GameMaster : MonoBehaviour
         Instance = this;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            fillImg = GameObject.Find("FillImage").gameObject;
+            spaceShip = GameObject.Find("Spaceship").gameObject;
             UpdateCows();
             barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + (Screen.width * 0.12f);
@@ -70,6 +73,12 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    public void UpdateReload()
+    {
+        float precentageReloaded = (3 - spaceShip.GetComponent<Spaceship_controls>().reloadTimer) / spaceShip.GetComponent<Spaceship_controls>().reloadTimerVal;
+        fillImg.GetComponent<Image>().fillAmount = precentageReloaded;
+    }
+
     public void FixedUpdate()
     {
         if (levelTimerStarted)
@@ -84,6 +93,7 @@ public class GameMaster : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            UpdateReload();
             float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
             float currentPos = startPos + progress * ((endPos - startPos) / 100);
             GameObject.Find("Tracker").GetComponent<RectTransform>().position = new Vector3(currentPos, GameObject.Find("Tracker").GetComponent<RectTransform>().position.y, GameObject.Find("Tracker").GetComponent<RectTransform>().position.z);
