@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     public ShopTemplate[] shopPanels;
     public GameObject[] shopPanelsGO;
     public Button[] myPurchaseBtns;
+    public GameObject[] Images;
     public GameObject shopCanvas;
     
 
@@ -52,6 +53,8 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].titleTxt.text = shopItems[i].title;
             shopPanels[i].descriptionTxt.text = shopItems[i].description;
             shopPanels[i].costTxt.text = "Coins: " + shopItems[i].baseCost.ToString();
+            print(shopItems[i].artwork);
+            Images[i].GetComponent<Image>().sprite = shopItems[i].artwork;
         }
     }
 
@@ -84,6 +87,7 @@ public class ShopManager : MonoBehaviour
     public void ExitShop()
     {
         shopCanvas.SetActive(false);
+        print("Buy shoppppp");
     }
 
 

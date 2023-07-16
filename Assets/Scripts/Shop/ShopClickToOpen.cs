@@ -6,13 +6,12 @@ public class ShopClickToOpen : MonoBehaviour
 {
 
     public GameObject shopCanvas;
+    public AudioSource shopOpenSound;
 
     // when you click
     private void OnMouseDown()
     {
-        // capture the mouse offset
-        // offset = cows.pos - mouse.pos
-        // mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+        shopOpenSound.Play();
         shopCanvas.SetActive(true);
     }
 
