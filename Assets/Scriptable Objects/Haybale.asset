@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Haybale
   m_EditorClassIdentifier: 
   title: Hayble
-  description: A delicious bale of hay
+  description: A delicious bale of hay. Your cows will love you!
   baseCost: 10
+  artwork: {fileID: 21300000, guid: f49f720c6c2ed31469f701e7b639e84b, type: 3}

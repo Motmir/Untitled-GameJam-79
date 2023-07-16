@@ -13,14 +13,12 @@ public class Parallax : MonoBehaviour
     public int length, depth;
     public GameObject cam;
     public float parallaxEffect;
-    private Vector2 camStart;
     private GameObject[] segments;
     public int currentSpace = 0;
     private int shift;
     // Start is called before the first frame update
     void Start()
     {
-        camStart = new Vector2(cam.transform.position.x, cam.transform.position.y);
         segments = new GameObject[sprites.Length];
         for (int i = 0; i < segments.Length; i++)
         {
@@ -58,7 +56,7 @@ public class Parallax : MonoBehaviour
         }
         for (int i = 0; i < segments.Length; i++)
         {
-            int j = (Mathf.Abs(currentSpace) + i) % segments.Length  ;
+            int j = (Mathf.Abs(currentSpace) + i) % segments.Length;
             float x = cam.transform.position.x + (currentSpace + j - shift) * length - distX*parallaxEffect;
             float y = cam.transform.position.y - distY * parallaxEffect;
 

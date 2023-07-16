@@ -132,6 +132,7 @@ MonoBehaviour:
   spaceshipRB: {fileID: 6997550949295390194}
   shipbody: {fileID: 2442675661924193705}
   beamObj: {fileID: 7692366695066596252}
+  spaceBullet: {fileID: 1532884713818425708, guid: 1e011f4a1287be24eb8b4e4b361eec74, type: 3}
   gun: {fileID: 4706492028712790804}
   acceleration: {x: 0.2, y: 0.2}
   maxSpeed: {x: 10, y: 10}
@@ -213,7 +214,7 @@ MonoBehaviour:
   - {x: -0.33958095, y: -0.47627443, z: -0.000000044703484}
   m_ShapePathHash: -425905464
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32672
+  m_InstanceId: 35588
   m_LocalBounds:
     m_Center: {x: 0.029096842, y: -0.019413233, z: 0}
     m_Extent: {x: 0.7421611, y: 0.63111246, z: 0}
@@ -545,7 +546,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 830394239
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.31143883, g: 0.5943396, b: 0.26633143, a: 1}

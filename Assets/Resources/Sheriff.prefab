@@ -273,7 +273,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 78978
+  m_InstanceId: 54876
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -295,8 +295,8 @@ MonoBehaviour:
   dirTimer: 0
   audioTimer: 0
   canSee: 0
-  beamed: 1
-  grounded: 1
+  beamed: 0
+  grounded: 0
   spinDir: 0
   detectionRange: 10
   movement: {x: 0, y: 0}
@@ -313,7 +313,8 @@ MonoBehaviour:
   spotClips: []
   entityAudio: {fileID: 4673773492947224562}
   reloadTimer: 0
-  bullet: {fileID: 231447913716390169, guid: 0d000fbaabe3523d38d5e5af7233b10d, type: 3}
+  bullet: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
+  hitPoints: 1
   burstTimer: 0
   bursts: 0
 --- !u!82 &4673773492947224562

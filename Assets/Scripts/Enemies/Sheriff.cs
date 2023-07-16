@@ -7,22 +7,21 @@ using UnityEngine.Animations;
 
 public class Sheriff : EnemyParent
 {
-    public float burstTimer = 0;
+    public float burstTimer = 0.4f;
     public int bursts = 0;
 
     public void Awake()
     {
         bullet = (GameObject)Resources.Load("Bullet");
-
     }
 
     public override void CanShoot()
     {
         if (canSee)
         {
-            if (reloadTimer < 0)
+            if (reloadTimer <= 0)
             {
-                if(burstTimer < 0)
+                if(burstTimer <= 0)
                 {
                     Shoot();
                     burstTimer = 0.4f;

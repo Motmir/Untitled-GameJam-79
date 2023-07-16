@@ -21,6 +21,10 @@ public abstract class ParentBullet : MonoBehaviour
             GameObject.Find("GameMaster").GetComponent<GameMaster>().DecreaseCows();
             CustomDelAnim();
             Destroy(gameObject);
+        } else if (collision.gameObject.name.StartsWith("ShipBullet") == true)
+        {
+            CustomDelAnim();
+            Destroy(gameObject);
         }
     }
 

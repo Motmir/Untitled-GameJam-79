@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ILevels
 {
 
+    abstract public void CallLevel(int lv);
     abstract public void Level1();
     abstract public void Level2();
     abstract public void Level3();
