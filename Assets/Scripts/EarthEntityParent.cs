@@ -18,7 +18,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
 
     public void CanSee()
     {
-        int layerMask = 1 << 8;
+        int layerMask = 8;
         if (Physics2D.Raycast(transform.position, distance.normalized, distance.magnitude - 1, layerMask) == false
             && distance.magnitude < detectionRange)
         {
