@@ -110,7 +110,7 @@ MonoBehaviour:
   beamed: 0
   grounded: 0
   spinDir: 0
-  detectionRange: 0
+  detectionRange: 4
   movement: {x: 0, y: 0}
   distance: {x: 0, y: 0}
   goal: {x: 0, y: 0}
@@ -192,10 +192,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -237,7 +237,7 @@ MonoBehaviour:
   - {x: 1.0209262, y: -1.1494869, z: 0}
   m_ShapePathHash: 830619003
   m_Mesh: {fileID: 0}
-  m_InstanceId: 80472
+  m_InstanceId: 82980
   m_LocalBounds:
     m_Center: {x: -0.015124679, y: -0.023127556, z: 0}
     m_Extent: {x: 1.0360508, y: 1.2331138, z: 0}
