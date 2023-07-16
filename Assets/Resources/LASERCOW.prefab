@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1064197721
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9a8eb31559ece5d46875ce6a4bdd9050, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1064197721
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 758ca8655de0bda9e96ff109c945cc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -246,7 +246,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1064197721
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 758ca8655de0bda9e96ff109c945cc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,7 +315,7 @@ MonoBehaviour:
   - {x: 4.20747, y: -5.5399475, z: 0}
   m_ShapePathHash: -1981308281
   m_Mesh: {fileID: 0}
-  m_InstanceId: 72320
+  m_InstanceId: 85122
   m_LocalBounds:
     m_Center: {x: -0.7871151, y: 0.14105558, z: 0}
     m_Extent: {x: 5.288988, y: 5.7961516, z: 0}
@@ -408,8 +408,12 @@ MonoBehaviour:
   entityAudio: {fileID: 0}
   reloadTimer: 0
   shootTimer: 0
+  aimTimer: 0
   bullet: {fileID: 0}
+  aimbullet: {fileID: 0}
   bulletObject: {fileID: 0}
+  normalSprite: {fileID: 21300000, guid: 89af08c829a1af8c59810b0c3ca9c75f, type: 3}
+  shootSprite: {fileID: 21300000, guid: ecae3ae7201459665bd85a620e1ae173, type: 3}
 --- !u!1 &8946532198405695806
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +485,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1064197721
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 89af08c829a1af8c59810b0c3ca9c75f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

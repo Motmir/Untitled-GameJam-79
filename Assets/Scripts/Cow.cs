@@ -66,7 +66,7 @@ public class Cow : EarthEntityParent
 
     public override void Collected()
     {
-        GameObject.Find("GameMaster").GetComponent<GameMaster>().IncreaseCows();
+        GameObject.Find("GameMaster").GetComponent<GameMaster>().IncreaseCows(1);
         Destroy(gameObject);
     }
     /*

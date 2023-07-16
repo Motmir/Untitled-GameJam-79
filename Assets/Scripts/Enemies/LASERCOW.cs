@@ -13,6 +13,7 @@ public class LASERCOW : EarthEntityParent
     private float spinSpeed = 0;
     private bool shooting, aiming;
     public GameObject bullet, aimbullet, bulletObject;
+    public Sprite normalSprite, shootSprite;
     Vector3 rotationSpin;
     Vector2 LaserStart, LaserFinish;
 
@@ -78,11 +79,13 @@ public class LASERCOW : EarthEntityParent
 
     public void reload()
     {
+        gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = normalSprite;
         shooting = false;
     }
 
     public void chargeLaser()
     {
+        gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = shootSprite;
         LaserStart = directionVector;
         Aim(LaserStart);
         aimTimer = 1;

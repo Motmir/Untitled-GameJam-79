@@ -14,7 +14,9 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
-    public int cownter = 0, spaceSceneGoalDist = 200, banked = 0, ammo = 3;
+    public int cownter { private set; get; }
+
+    private int spaceSceneGoalDist = 200, banked = 0; ammo = 3;
     private int level = 1;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
@@ -43,21 +45,22 @@ public class GameMaster : MonoBehaviour
             endPos = Screen.width - (Screen.width * 0.12f);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
+        cownter = 30;
     }
 
     public void UpdateCows()
     {
         GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cownter: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
     }
-    public void IncreaseCows()
+    public void IncreaseCows(int cows)
     {
-        cownter++;
+        cownter+=cows;
         UpdateCows();
     }
 
-    public void DecreaseCows()
+    public void DecreaseCows(int cows)
     {
-        cownter--;
+        cownter-=cows;
         UpdateCows();
     }
 
@@ -79,11 +82,23 @@ public class GameMaster : MonoBehaviour
             cownter += banked;
             banked = 0;
             level++;
+            GameObject cow = (GameObject) Resources.Load("Cow_Mars");
+            for (int i = 0; i < cownter; i++)
+            {
+                GameObject.Instantiate(cow, new Vector3(0, 0, 0), Quaternion.identity);
+            }
             SceneManager.LoadScene("Farm Scene");
         }
     }
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    public void Update()
+    {
+        Debug.Log("cownter:");
+        Debug.Log(cownter);
+    }
+
+    public void UpdateReload()
     {
         if (scene.name == "Earth Scene")
         {
