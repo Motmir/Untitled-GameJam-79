@@ -11,8 +11,7 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
-    public int cownter = 0, spaceSceneGoalDist = 1000;
-    private int scene = 0;
+    public int cownter = 0, spaceSceneGoalDist = 30;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
     private float remainingLevelTime;
@@ -27,22 +26,26 @@ public class GameMaster : MonoBehaviour
         Instance = this;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            UpdateCows();
             barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + 155;
             endPos = startPos + barSize - 75;
         } 
     }
-
+    public void UpdateCows()
+    {
+        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cownter: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+    }
     public void IncreaseCows()
     {
         cownter++;
-        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+        UpdateCows();
     }
 
     public void DecreaseCows()
     {
         cownter--;
-        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+        UpdateCows();
     }
 
     public void SwichScenes()
@@ -66,12 +69,11 @@ public class GameMaster : MonoBehaviour
         if (levelTimerStarted)
         {
             remainingLevelTime -= Time.deltaTime;
-            if(remainingLevelTime < 0)
+            if(remainingLevelTime <= 0)
             {
                 SwichScenes();
             }
         }
-
 
 
         if (SceneManager.GetActiveScene().buildIndex == 2)
@@ -83,9 +85,19 @@ public class GameMaster : MonoBehaviour
             if (progress >= 100 && !levelTimerStarted)
             {
                 levelTimerStarted = true;
-                remainingLevelTime = 10;
+                remainingLevelTime = 0;
             }
             
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (!levelTimerStarted)
+            {
+                levelTimerStarted = true;
+                remainingLevelTime = 240;
+            }
+
         }
     }
 

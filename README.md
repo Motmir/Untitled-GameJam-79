@@ -1,11 +1,11 @@
-# Untitled-GameJam-79
+# Untitled-GameJam-79 AKA Milky Way Ranch!
 Repo for collaborative work for the Untitled GameJam 79 with theme Space Farming
 
 
 ## Info
 Unity Version: 2022.3.4f1[^1]
 
-[^1]: https://unity.com/releases/editor/whats-new/2022.3.4
+
 
 ## Vision
 Earth: beam cows, dont get shot.
@@ -24,7 +24,9 @@ military comander: bazooka, medium range, homing, low reload rate
 
 <img src="https://github.com/Motmir/Untitled-GameJam-79/assets/107803110/30685590-cc10-4dd0-9132-e55f03fcfe4b" width="400" height="200">
 
-![image](https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/6441e892-5b28-4206-9746-928e96c98ce2)
+<img src="https://github.com/Motmir/Untitled-GameJam-79/assets/33452984/6441e892-5b28-4206-9746-928e96c98ce2" width="400" Height="200">
+worry.
 
+[^1]: https://unity.com/releases/editor/whats-new/2022.3.4
 
 

@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
+  breakAnim: {fileID: 380887602104485967, guid: 930cc639a1b0e254b8804db1b168c9e7, type: 3}
 --- !u!212 &9022662390091945217
 SpriteRenderer:
   m_ObjectHideFlags: 0

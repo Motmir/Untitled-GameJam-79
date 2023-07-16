@@ -23,4 +23,8 @@ public class Bullet : ParentBullet
         }
     }
 
+    public override void CustomDelAnim()
+    {
+        throw new System.NotImplementedException();
+    }
 }

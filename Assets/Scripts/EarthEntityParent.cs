@@ -106,7 +106,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ground placeholder")
+        if (collision.gameObject.name == "Earth ground")
         {
             grounded = true;
             dirTimer = 0;
@@ -118,7 +118,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         if (collision.gameObject.name == "Beam")
         {
             beamed = false;
-            moveVector = new Vector2(0, 0);
+            moveVector = new Vector2(moveVector.x, moveVector.y);
             //not TractorBeamed();
         }
     }
