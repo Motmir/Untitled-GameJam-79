@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,8 +15,13 @@ public class GameMaster : MonoBehaviour
     public int cownter = 0, spaceSceneGoalDist = 30;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
+    private float startLevelTime;
     private float remainingLevelTime;
     private GameObject fillImg, spaceShip;
+
+    private Transform sun;
+    private Transform cam;
+    private Light2D holyLight;
 
     private void Awake()
     {
@@ -54,7 +60,7 @@ public class GameMaster : MonoBehaviour
     public void SwichScenes()
     {
         int scene = SceneManager.GetActiveScene().buildIndex;
-
+        levelTimerStarted = false;
         if (scene == 0)
         {
             SceneManager.LoadScene("Earth Scene");
@@ -94,8 +100,7 @@ public class GameMaster : MonoBehaviour
 
             if (progress >= 100 && !levelTimerStarted)
             {
-                levelTimerStarted = true;
-                remainingLevelTime = 0;
+                startTimer(0);
             }
             
         }
@@ -104,12 +109,29 @@ public class GameMaster : MonoBehaviour
         {
             if (!levelTimerStarted)
             {
-                levelTimerStarted = true;
-                remainingLevelTime = 240;
+                cam = GameObject.Find("PlayerCam").GetComponent<Transform>();
+                sun = GameObject.Find("Sun").GetComponent<Transform>();
+                holyLight = sun.GetComponent<Light2D>();
+                startTimer(240);
+            } else
+            {
+                float percent = remainingLevelTime / startLevelTime;
+                float sunOffsetY = Mathf.Lerp(40,-5, 1 - percent);
+                if(percent < 0.3f)
+                {
+                    holyLight.intensity = Mathf.Lerp(0.2f,1,percent/0.3f);
+                }
+                sun.transform.position = sun.transform.position = new Vector3(cam.position.x-5, cam.position.y-cam.position.y*0.2f+sunOffsetY, 5);
             }
 
         }
     }
 
+    private void startTimer(int seconds)
+    {
+        startLevelTime = seconds;
+        remainingLevelTime = seconds;
+        levelTimerStarted = true;
+    }
 
 }
