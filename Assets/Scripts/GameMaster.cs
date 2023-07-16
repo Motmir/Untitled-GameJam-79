@@ -28,8 +28,8 @@ public class GameMaster : MonoBehaviour
         {
             UpdateCows();
             barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
-            startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + 155;
-            endPos = startPos + barSize - 75;
+            startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + (Screen.width * 0.12f);
+            endPos = Screen.width - (Screen.width * 0.12f);
         } 
     }
     public void UpdateCows()
