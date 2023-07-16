@@ -12,7 +12,6 @@ public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
     public int cownter = 0, spaceSceneGoalDist = 30;
-    private int scene = 0;
     private float startPos, endPos, barSize;
     private bool levelTimerStarted = false;
     private float remainingLevelTime;
@@ -77,7 +76,6 @@ public class GameMaster : MonoBehaviour
         }
 
 
-
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             float progress = (GameObject.Find("Spaceship").GetComponent<Transform>().position.x / spaceSceneGoalDist) * 100;
@@ -90,6 +88,16 @@ public class GameMaster : MonoBehaviour
                 remainingLevelTime = 0;
             }
             
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (!levelTimerStarted)
+            {
+                levelTimerStarted = true;
+                remainingLevelTime = 240;
+            }
+
         }
     }
 
