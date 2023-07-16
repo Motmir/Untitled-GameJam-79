@@ -53,6 +53,7 @@ public abstract class EnemyParent : EarthEntityParent
             CanShoot();
             Move();
             reloadTimer -= Time.deltaTime;
+            Debug.Log(reloadTimer);
         }
     }
     public void WatchShip()
