@@ -19,7 +19,7 @@ public class CutSceneNextScene : MonoBehaviour
 
     IEnumerator NextScene()
     {
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(50f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
  }
