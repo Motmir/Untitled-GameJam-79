@@ -46,13 +46,25 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
 
     abstract public void FixedUpdate();
 
+    public void Update()
+    {
+        /*if (audioTimer < 0)
+        {
+            PassiveAudio();
+            audioTimer = UnityEngine.Random.Range(5, 11);
+        } else
+        {
+            audioTimer -= Time.deltaTime;
+        }*/
+    }
     abstract public void Move();
 
     // Start is called before the first frame update
     void Start()
     {
-        ship = GameObject.Find("Spaceship");
+        ship = GameObject.Find("Spaceship").gameObject;
         rb = transform.GetComponent<Rigidbody2D>();
+        audioTimer = UnityEngine.Random.Range(5, 11);
     }
     public void BeamedAudio()
     {

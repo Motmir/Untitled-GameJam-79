@@ -33,6 +33,14 @@ public class Cow : EarthEntityParent
             }
             moveVector.y = 0;
         }
+        if (Mathf.Sign(moveVector.x) == 1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
         rb.velocity = moveVector;
     }
     public override void FixedUpdate()
