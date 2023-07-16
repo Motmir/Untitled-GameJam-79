@@ -17,7 +17,6 @@ public class Spaceship_controls : MonoBehaviour
     //control
     private Controls controls;
     private Vector2 moveInput, mousePos;
-
     
     //Variables
     public Vector2 acceleration = new Vector2(0.1f, 0.1f);
@@ -105,13 +104,18 @@ public class Spaceship_controls : MonoBehaviour
         if (currentSpeed.x > maxSpeed.x) { currentVelocity.x = maxSpeed.x * Mathf.Sign(currentVelocity.x); }
         if (currentSpeed.y > maxSpeed.y) { currentVelocity.y = maxSpeed.y * Mathf.Sign(currentVelocity.y); }
         spaceshipRB.velocity = currentVelocity;
+        float shipY = Mathf.Clamp(spaceshipRB.transform.position.y, FloorRoofShip.x, FloorRoofShip.y);
+        spaceshipRB.transform.position = new Vector3(spaceshipRB.transform.position.x, shipY, 0);
 
         spaceshipRB.AddTorque( Vector3.Dot(Vector3.up, -spaceshipRB.transform.right));
         
-        float x = Mathf.Lerp(cam.transform.position.x, shipbody.position.x + xOffset, Time.deltaTime * someSpeedFactor);
-        float y = Mathf.Lerp(cam.transform.position.y, shipbody.position.y, Time.deltaTime * someSpeedFactor);
+        float camX = Mathf.Lerp(cam.transform.position.x, shipbody.position.x + xOffset, Time.deltaTime * someSpeedFactor);
+        float camY = Mathf.Lerp(cam.transform.position.y, shipbody.position.y, Time.deltaTime * someSpeedFactor);
 
-        cam.transform.position = new Vector3(x, y, -10);
+        camY = Mathf.Clamp(camY, FloorRoofCam.x, FloorRoofCam.y);
+
+        cam.transform.position = new Vector3(camX, camY, -10);
+
         //private float tilt = 0;
         //public float maxTilt = 90f;
         //tilt = Mathf.Lerp(tilt, Mathf.Sign(currentVelocity.x) * (speed) / (maxSpeed.x), 0.5f);
