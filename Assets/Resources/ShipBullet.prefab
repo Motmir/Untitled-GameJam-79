@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2103855120813950680}
   - component: {fileID: 4506724329831867283}
   - component: {fileID: 619666857471668765}
+  - component: {fileID: 3657117701217617106}
   m_Layer: 6
   m_Name: ShipBullet
   m_TagString: Untagged
@@ -76,9 +77,9 @@ SpriteRenderer:
   m_SortingLayerID: 830394239
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7091e056526f6a143b93545b24aacda8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8592bc09f51e3714e9675cf1d51bb0d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -146,9 +147,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.011153817, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.1580878
 --- !u!114 &619666857471668765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +164,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   breakAnim: {fileID: 0}
+--- !u!95 &3657117701217617106
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532884713818425708}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c31ee346d7057cd4bb67c08696d89491, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
