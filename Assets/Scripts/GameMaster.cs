@@ -27,22 +27,26 @@ public class GameMaster : MonoBehaviour
         Instance = this;
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+            UpdateCows();
             barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + 155;
             endPos = startPos + barSize - 75;
         } 
     }
-
+    public void UpdateCows()
+    {
+        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cownter: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+    }
     public void IncreaseCows()
     {
         cownter++;
-        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+        UpdateCows();
     }
 
     public void DecreaseCows()
     {
         cownter--;
-        GameObject.Find("Cownter").GetComponent<TextMeshProUGUI>().text = "Cows: " + GameObject.Find("GameMaster").GetComponent<GameMaster>().cownter;
+        UpdateCows();
     }
 
     public void SwichScenes()
