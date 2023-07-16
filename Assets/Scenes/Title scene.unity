@@ -304,24 +304,8 @@ PrefabInstance:
       value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.2627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.86274517
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.20000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4282637363
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_enableVertexGradient
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -440,42 +424,6 @@ PrefabInstance:
     - target: {fileID: 4730536229378848489, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.2627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.86274517
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.20000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_lineSpacing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4282637363
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_enableVertexGradient
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColorGradient.topLeft.b
-      value: 0.2627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColorGradient.topLeft.g
-      value: 0.86274517
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116185901775459509, guid: 58d943c57e8beeb4f84a3d878dfef7c1, type: 3}
-      propertyPath: m_fontColorGradient.topLeft.r
-      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

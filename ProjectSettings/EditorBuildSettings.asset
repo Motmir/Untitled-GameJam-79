@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title scene.unity
     guid: 67a680663fb3967439f69b2fd69d99ea
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: 549d568f75987314c9b89fdc8339b59a
+  - enabled: 1
     path: Assets/Scenes/Farm Scene.unity
     guid: c68b676469144ef41ad0af0fdc6aeaa0
   - enabled: 1
