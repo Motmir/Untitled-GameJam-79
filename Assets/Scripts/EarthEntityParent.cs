@@ -9,7 +9,7 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
     public GameObject ship;
     public Transform shipPos;
     public Rigidbody2D rb;
-    public int dirTimer;
+    public float dirTimer, audioTimer;
     public bool canSee, beamed, grounded, spinDir;
     public float detectionRange;
     public Vector2 movement, distance, goal, directionVector, moveVector;
@@ -52,13 +52,14 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
         ship = GameObject.Find("Spaceship");
         rb = transform.GetComponent<Rigidbody2D>();
     }
-
+    public abstract void BeamedAudio();
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Beam")
         {
             beamed = true;
             grounded = false;
+            BeamedAudio();
             TractorBeamed();
         }
         if (collision.gameObject.name == "Collector")
@@ -66,7 +67,6 @@ abstract public class EarthEntityParent : MonoBehaviour, IEarthEntities
             Collected();
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Ground placeholder")
