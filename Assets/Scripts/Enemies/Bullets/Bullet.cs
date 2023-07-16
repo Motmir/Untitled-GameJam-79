@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Bullet : ParentBullet
 {
@@ -25,6 +26,6 @@ public class Bullet : ParentBullet
 
     public override void CustomDelAnim()
     {
-        throw new System.NotImplementedException();
+        GameObject effect = Instantiate(breakAnim, transform.position, Quaternion.identity);
     }
 }
