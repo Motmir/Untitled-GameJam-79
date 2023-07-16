@@ -12,11 +12,6 @@ public class Farmer : EnemyParent
         bullet = (GameObject)Resources.Load("Bullet");
     }
 
-    public void Start()
-    {
-        SpawnedAudio();
-    }
-
     public override void Shoot()
     {
         Vector2 bulletSpawn = (Vector2)transform.position + (directionVector / 2);
