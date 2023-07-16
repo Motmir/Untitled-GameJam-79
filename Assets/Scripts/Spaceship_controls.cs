@@ -111,9 +111,14 @@ public class Spaceship_controls : MonoBehaviour
         if (currentSpeed.x > maxSpeed.x) { currentVelocity.x = maxSpeed.x * Mathf.Sign(currentVelocity.x); }
         if (currentSpeed.y > maxSpeed.y) { currentVelocity.y = maxSpeed.y * Mathf.Sign(currentVelocity.y); }
         spaceshipRB.velocity = currentVelocity;
-        float shipY = Mathf.Clamp(spaceshipRB.transform.position.y, FloorRoofShip.x, FloorRoofShip.y);
-        spaceshipRB.transform.position = new Vector3(spaceshipRB.transform.position.x, shipY, 0);
-
+        if(spaceshipRB.transform.position.y > FloorRoofShip.y)
+        {
+            spaceshipRB.velocity = new Vector2(currentVelocity.x, -0.5f);
+        }
+        else if (spaceshipRB.transform.position.y < FloorRoofShip.x)
+        {
+            spaceshipRB.velocity = new Vector2(currentVelocity.x, 0.5f);
+        }
         spaceshipRB.AddTorque( Vector3.Dot(Vector3.up, -spaceshipRB.transform.right));
 
         if (reloadTimer >= 0) 
