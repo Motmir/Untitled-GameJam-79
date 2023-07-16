@@ -31,14 +31,13 @@ public class AsteroidSpawner : MonoBehaviour, ILevels
         timer += Time.deltaTime;
 
         // Modefies timer and size with difficultyMultiplier
-        float timerOffset = Random.Range(0.0f, 0.01f*difficultyMultiplier);
         int numberOfRocks = Mathf.FloorToInt(2 * difficultyMultiplier);
 
-        if(1/spawnRate < timer + timerOffset)
+        if(1/spawnRate < timer)
         {
             for(int i = 0; i < numberOfRocks; i++)
             {
-                float asteroidSize = Mathf.Sqrt(1.2f * UnityEngine.Random.Range(0.0f, difficultyMultiplier));
+                float asteroidSize = Mathf.Sqrt(1.2f * Random.Range(0.0f, difficultyMultiplier));
                 if(asteroidSize > 2)
                 {
                     SpawnAsteroid(bAsteroid);
@@ -115,22 +114,26 @@ public class AsteroidSpawner : MonoBehaviour, ILevels
 
     public void Level2()
     {
-        throw new System.NotImplementedException();
+        difficultyMultiplier = 1f;
+        spawnRate = 2;
     }
 
     public void Level3()
     {
-        throw new System.NotImplementedException();
+        difficultyMultiplier = 1.3f;
+        spawnRate = 3;
     }
 
     public void Level4()
     {
-        throw new System.NotImplementedException();
+        difficultyMultiplier = 1.7f;
+        spawnRate = 4;
     }
 
     public void Level5()
     {
-        throw new System.NotImplementedException();
+        difficultyMultiplier = 2f;
+        spawnRate = 5;
     }
 
     public void CallLevel(int lv)

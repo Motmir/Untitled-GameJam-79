@@ -66,24 +66,30 @@ public class LevelController : MonoBehaviour, ILevels
 
     public void Level2()
     {
-        cowsToSpawnVal = 15; enemiesToSpawnVal = 1; cowTimerVal = 10; enemyTimerVal = 60;
+        cowsToSpawnVal = 15; enemiesToSpawnVal = 2; cowTimerVal = 10; enemyTimerVal = 60;
         cow = (GameObject)Resources.Load("Cow");
         enemy = (GameObject)Resources.Load("Farmer");
     }
 
     public void Level3()
     {
-        throw new System.NotImplementedException();
+        cowsToSpawnVal = 25; enemiesToSpawnVal = 1; cowTimerVal = 10; enemyTimerVal = 30;
+        cow = (GameObject)Resources.Load("Cow");
+        enemy = (GameObject)Resources.Load("Sheriff");
     }
 
     public void Level4()
     {
-        throw new System.NotImplementedException();
+        cowsToSpawnVal = 40; enemiesToSpawnVal = 2; cowTimerVal = 10; enemyTimerVal = 80;
+        cow = (GameObject)Resources.Load("Cow");
+        enemy = (GameObject)Resources.Load("Army");
     }
 
     public void Level5()
     {
-        throw new System.NotImplementedException();
+        cowsToSpawnVal = 60; enemiesToSpawnVal = 1; cowTimerVal = 10; enemyTimerVal = 20;
+        cow = (GameObject)Resources.Load("Cow");
+        enemy = (GameObject)Resources.Load("Army");
     }
 
 
