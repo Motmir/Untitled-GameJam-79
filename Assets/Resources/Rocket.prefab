@@ -162,5 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+  breakAnim: {fileID: 932153520080298668, guid: 68375e2803e6a8545afe7a4734b40ead, type: 3}
   adjustRate: 0.2
   timer: 0

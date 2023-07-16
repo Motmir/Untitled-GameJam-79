@@ -49,6 +49,6 @@ public class Rocket : ParentBullet
 
     public override void CustomDelAnim()
     {
-        throw new System.NotImplementedException();
+        GameObject effect = Instantiate(breakAnim, transform.position, Quaternion.identity);
     }
 }
