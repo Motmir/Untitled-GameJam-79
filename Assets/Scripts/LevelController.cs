@@ -9,6 +9,10 @@ public class LevelController : MonoBehaviour, ILevels
     private float cowTimer, enemyTimer, cowTimerVal, enemyTimerVal;
     GameObject cow, enemy;
 
+    public void Awake()
+    {
+        //Level3();
+    }
     public float GetCowX()
     {
         float camPosX = GameObject.Find("PlayerCam").transform.position.x;

@@ -273,7 +273,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54876
+  m_InstanceId: 60942
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -312,10 +312,10 @@ MonoBehaviour:
   spawnClips: []
   spotClips: []
   entityAudio: {fileID: 4673773492947224562}
-  reloadTimer: 0
+  reloadTimer: -2
   bullet: {fileID: 1532884713818425708, guid: cf3ac82284f96a54eb6451d980ef719f, type: 3}
   hitPoints: 1
-  burstTimer: 0
+  burstTimer: -1
   bursts: 0
 --- !u!82 &4673773492947224562
 AudioSource:
@@ -329,7 +329,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 361595d8bee3da47292fe023039aee01, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
