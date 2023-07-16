@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class Spaceship_controls : MonoBehaviour
 {
@@ -44,7 +45,6 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.Beam.canceled += Beam;
         controls.Spaceship.Shoot.performed += Shoot;
         controls.Spaceship.SwitchScene.performed += Swich;
-        SpawnAmmo();
     }
     void OnEnable()
     {
@@ -54,6 +54,7 @@ public class Spaceship_controls : MonoBehaviour
         controls.Spaceship.Beam.Enable();
         controls.Spaceship.Shoot.Enable();
         controls.Spaceship.SwitchScene.Enable();
+        SpawnAmmo();
     }
     void OnDisable()
     {
@@ -67,14 +68,21 @@ public class Spaceship_controls : MonoBehaviour
 
     private void SpawnAmmo()
     {
-        ammoAmount = GameMaster.Instance.ammo;
+        ammoAmount = GameObject.Find("GameMaster").GetComponent<GameMaster>().ammo;
         amooray = new Amoo[ammoAmount];
         GameObject ammoObj = (GameObject)Resources.Load("Ammo");
         for (int i = 0; i < ammoAmount; i++)
         {
             GameObject Object = Instantiate(ammoObj, GameObject.Find("Canvas").transform);
             Object.transform.SetParent(GameObject.Find("Canvas").transform);
-            Object.transform.position = new Vector3(40 * i, -390, 0) + Object.transform.position;
+            if (SceneManager.GetActiveScene().name == "Earth Scene")
+            {
+                Object.transform.position = new Vector3(40 * i, 0, 0) + Object.transform.position;
+            } else
+            {
+                Object.transform.position = new Vector3(40 * i, -390, 0) + Object.transform.position;
+            }
+            
             amooray[i] = Object.GetComponent<Amoo>();
         }
     }
@@ -83,6 +91,11 @@ public class Spaceship_controls : MonoBehaviour
     {
         for (int i = 0; i < ammoAmount; i++)
         {
+            amooray[i].canReload = false;
+        }
+        for (int i = 0; i < ammoAmount; i++)
+        {
+            
             if (!amooray[i].full)
             {
                 amooray[i].canReload = true;
@@ -113,7 +126,7 @@ public class Spaceship_controls : MonoBehaviour
 
     void Shoot(InputAction.CallbackContext c)
     {
-        for (int i = ammoAmount; i > 0; i--) 
+        for (int i = ammoAmount - 1; i >= 0; i--) 
         {
             if (amooray[i].full)
             {
@@ -142,11 +155,6 @@ public class Spaceship_controls : MonoBehaviour
         GameMaster.Instance.SwichScenes();
     }
 
-
-    private void LateUpdate()
-    {
-
-    }
     void FixedUpdate()
     {
         //ship movement
@@ -167,11 +175,9 @@ public class Spaceship_controls : MonoBehaviour
         }
         spaceshipRB.AddTorque( Vector3.Dot(Vector3.up, -spaceshipRB.transform.right));
 
-        if (reloadTimer >= 0) 
-        { 
-            reloadTimer -= Time.deltaTime;
-        }
-        
+        UpdateReload();
+
+
         float camX = Mathf.Lerp(cam.transform.position.x, shipbody.position.x + xOffset, Time.deltaTime * someSpeedFactor);
         float camY = Mathf.Lerp(cam.transform.position.y, shipbody.position.y, Time.deltaTime * someSpeedFactor);
 

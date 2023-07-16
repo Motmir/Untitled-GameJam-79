@@ -1,24 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster Instance;
     public int cownter { private set; get; }
 
-    private int spaceSceneGoalDist = 200, banked = 0; ammo = 3;
+    public int spaceSceneGoalDist = 200, banked = 0, ammo = 3;
     private int level = 1;
-    private float startPos, endPos, barSize;
+    private float startPos, endPos;
     private bool levelTimerStarted = false;
     private float startLevelTime;
     private float remainingLevelTime;
@@ -40,12 +33,10 @@ public class GameMaster : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             UpdateCows();
-            barSize = GameObject.Find("ProgressBar").GetComponent<RectTransform>().rect.width;
             startPos = GameObject.Find("ProgressBar").GetComponent<RectTransform>().anchoredPosition.x + (Screen.width * 0.12f);
             endPos = Screen.width - (Screen.width * 0.12f);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
-        cownter = 30;
     }
 
     public void UpdateCows()
@@ -82,23 +73,20 @@ public class GameMaster : MonoBehaviour
             cownter += banked;
             banked = 0;
             level++;
-            GameObject cow = (GameObject) Resources.Load("Cow_Mars");
-            for (int i = 0; i < cownter; i++)
-            {
-                GameObject.Instantiate(cow, new Vector3(0, 0, 0), Quaternion.identity);
-            }
             SceneManager.LoadScene("Farm Scene");
         }
     }
 
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
-    public void Update()
+    public void SpawnTheFuckingCows()
     {
-        Debug.Log("cownter:");
-        Debug.Log(cownter);
+        GameObject cow = (GameObject)Resources.Load("Cow_Mars");
+        for (int i = 0; i < cownter; i++)
+        {
+            Instantiate(cow, new Vector3(UnityEngine.Random.Range(-4, 4), UnityEngine.Random.Range(-4, 4), 0), Quaternion.identity);
+        }
     }
 
-    public void UpdateReload()
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Earth Scene")
         {
@@ -110,7 +98,7 @@ public class GameMaster : MonoBehaviour
         }
         else if (scene.name == "Farm Scene")
         {
-            //spawn cows
+            SpawnTheFuckingCows();
         }
     }
 
