@@ -10,12 +10,12 @@ public class Farmer : EnemyParent
     public void Awake()
     {
         bullet = (GameObject)Resources.Load("Farmer_Bullet");
-
+        ship = GameObject.Find("Spaceship").gameObject;
     }
 
-    public override void BeamedAudio()
+    public void Start()
     {
-        throw new System.NotImplementedException();
+        SpawnedAudio();
     }
 
     public override void Shoot()
