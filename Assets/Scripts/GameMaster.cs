@@ -90,7 +90,7 @@ public class GameMaster : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log("hi");
+        Debug.Log("cownter:");
         Debug.Log(cownter);
     }
 
