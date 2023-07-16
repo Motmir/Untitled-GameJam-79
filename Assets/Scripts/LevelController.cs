@@ -93,7 +93,7 @@ public class LevelController : MonoBehaviour, ILevels
     {
         cowsToSpawnVal = 60; enemiesToSpawnVal = 1; cowTimerVal = 10; enemyTimerVal = 20;
         cow = (GameObject)Resources.Load("Cow");
-        enemy = (GameObject)Resources.Load("Army");
+        enemy = (GameObject)Resources.Load("LASERCOW");
     }
 
 
