@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7363270741622752302}
   - component: {fileID: 6716350356110798537}
   m_Layer: 0
-  m_Name: rocket trail 1
+  m_Name: rockettrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
