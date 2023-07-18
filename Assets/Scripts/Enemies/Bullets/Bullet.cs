@@ -27,5 +27,6 @@ public class Bullet : ParentBullet
     public override void CustomDelAnim()
     {
         GameObject effect = Instantiate(breakAnim, transform.position, Quaternion.identity);
+        Destroy(effect, 15);
     }
 }
